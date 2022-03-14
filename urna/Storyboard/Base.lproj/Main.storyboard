@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="urna" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo black" translatesAutoresizingMaskIntoConstraints="NO" id="vw7-Ae-ENA">
+                                <rect key="frame" x="89" y="389" width="236" height="103"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vw7-Ae-ENA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="89" id="OcU-r1-JN3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vw7-Ae-ENA" secondAttribute="trailing" constant="89" id="PsF-uT-nKx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vw7-Ae-ENA" secondAttribute="bottom" constant="370" id="zY9-zA-GFI"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="110"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="mcK-a7-g8Q">
+            <objects>
+                <viewController id="w2f-LV-B1c" customClass="LoginViewController" customModule="urna" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ESF-E4-gOU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-women" translatesAutoresizingMaskIntoConstraints="NO" id="4Ij-EU-Kqr">
+                                <rect key="frame" x="29" y="135" width="357" height="333"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="fsV-Dg-nCa">
+                                <rect key="frame" x="34" y="651" width="346" height="136"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AwN-OC-NjA">
+                                        <rect key="frame" x="0.0" y="0.0" width="346" height="58"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="58" id="bz5-Lv-gdy"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Log in" cornerStyle="capsule">
+                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
+                                            <color key="baseBackgroundColor" name="mainMarine"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="login" destination="w2f-LV-B1c" eventType="touchUpInside" id="vkA-2l-U4W"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zyt-Tn-mb6">
+                                        <rect key="frame" x="0.0" y="78" width="346" height="58"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="58" id="b8z-x2-LvU"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Registration" cornerStyle="capsule">
+                                            <backgroundConfiguration key="background" strokeWidth="3" strokeOutset="0.0">
+                                                <color key="strokeColor" name="mainMarine"/>
+                                            </backgroundConfiguration>
+                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
+                                            <color key="baseForegroundColor" name="mainMarine"/>
+                                            <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="registration" destination="w2f-LV-B1c" eventType="touchUpInside" id="eBu-ha-MxJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo &amp; motto" translatesAutoresizingMaskIntoConstraints="NO" id="U1L-Hl-jKf">
+                                <rect key="frame" x="43" y="322" width="329" height="345"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="n5V-ig-8B2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="n5V-ig-8B2" firstAttribute="trailing" secondItem="U1L-Hl-jKf" secondAttribute="trailing" constant="42" id="0ga-N8-Oke"/>
+                            <constraint firstItem="4Ij-EU-Kqr" firstAttribute="top" secondItem="n5V-ig-8B2" secondAttribute="top" constant="91" id="3d0-vI-H5J"/>
+                            <constraint firstItem="n5V-ig-8B2" firstAttribute="bottom" secondItem="U1L-Hl-jKf" secondAttribute="bottom" constant="195" id="6dK-iq-vyM"/>
+                            <constraint firstItem="4Ij-EU-Kqr" firstAttribute="leading" secondItem="n5V-ig-8B2" secondAttribute="leading" constant="29" id="RjP-ow-QG7"/>
+                            <constraint firstItem="n5V-ig-8B2" firstAttribute="bottom" secondItem="fsV-Dg-nCa" secondAttribute="bottom" constant="75" id="XaY-GS-t0a"/>
+                            <constraint firstItem="n5V-ig-8B2" firstAttribute="trailing" secondItem="fsV-Dg-nCa" secondAttribute="trailing" constant="34" id="Zof-ST-Nop"/>
+                            <constraint firstItem="U1L-Hl-jKf" firstAttribute="leading" secondItem="n5V-ig-8B2" secondAttribute="leading" constant="43" id="ett-DO-dGe"/>
+                            <constraint firstItem="fsV-Dg-nCa" firstAttribute="leading" secondItem="n5V-ig-8B2" secondAttribute="leading" constant="34" id="pmn-fK-6b2"/>
+                            <constraint firstItem="n5V-ig-8B2" firstAttribute="trailing" secondItem="4Ij-EU-Kqr" secondAttribute="trailing" constant="28" id="z4r-gK-a1l"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r3p-Ih-1SR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="976.81159420289862" y="109.82142857142857"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logo &amp; motto" width="915" height="345"/>
+        <image name="logo black" width="212" height="103"/>
+        <image name="logo-women" width="333" height="333"/>
+        <namedColor name="mainMarine">
+            <color red="0.30588235294117649" green="0.80000000000000004" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
