@@ -8,6 +8,8 @@
 import UIKit
 
 class EnterViewController: UIViewController {
+    
+    @IBOutlet var socialButtons: [UIButton]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
