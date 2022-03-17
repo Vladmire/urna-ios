@@ -19,6 +19,6 @@ struct User {
     var password: String = ""
     var email: String = ""
     var image: String = ""
-    var username: String = ""
+    var name: String = ""
     var gender: Gender = .hidden
 }

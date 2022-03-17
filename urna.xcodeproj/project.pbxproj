@@ -9,13 +9,17 @@
 /* Begin PBXBuildFile section */
 		6900A1C427E1E755006DAB39 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6900A1C327E1E755006DAB39 /* MapViewController.swift */; };
 		6900A1C627E223F6006DAB39 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6900A1C527E223F6006DAB39 /* Users.swift */; };
+		6930440E27E33E4D00A10B7D /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6930440D27E33E4D00A10B7D /* AuthViewController.swift */; };
+		6930441027E3439B00A10B7D /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6930440F27E3439B00A10B7D /* Auth.storyboard */; };
+		6930441627E35C5F00A10B7D /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6930441527E35C5F00A10B7D /* RoundedTextField.swift */; };
+		6930441827E377D200A10B7D /* forgotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6930441727E377D200A10B7D /* forgotViewController.swift */; };
+		6930441A27E377E200A10B7D /* changeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6930441927E377E200A10B7D /* changeViewController.swift */; };
 		693D90BF27E0B40C00CB0AC5 /* Points.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693D90BE27E0B40C00CB0AC5 /* Points.swift */; };
 		693D90C227E0B5DF00CB0AC5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 693D90C127E0B5DF00CB0AC5 /* MapKit.framework */; };
 		693D90C627E0C9F400CB0AC5 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693D90C527E0C9F400CB0AC5 /* RegistrationViewController.swift */; };
 		693D90C827E0CF0D00CB0AC5 /* EnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693D90C727E0CF0C00CB0AC5 /* EnterViewController.swift */; };
 		6994618227DF6E6B0083D91B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6994618127DF6E6B0083D91B /* AppDelegate.swift */; };
 		6994618427DF6E6B0083D91B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6994618327DF6E6B0083D91B /* SceneDelegate.swift */; };
-		6994618627DF6E6B0083D91B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6994618527DF6E6B0083D91B /* ViewController.swift */; };
 		6994618927DF6E6B0083D91B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6994618727DF6E6B0083D91B /* Main.storyboard */; };
 		6994618B27DF6E6D0083D91B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6994618A27DF6E6D0083D91B /* Assets.xcassets */; };
 		6994618E27DF6E6D0083D91B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6994618C27DF6E6D0083D91B /* LaunchScreen.storyboard */; };
@@ -43,6 +47,11 @@
 /* Begin PBXFileReference section */
 		6900A1C327E1E755006DAB39 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		6900A1C527E223F6006DAB39 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		6930440D27E33E4D00A10B7D /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		6930440F27E3439B00A10B7D /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		6930441527E35C5F00A10B7D /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
+		6930441727E377D200A10B7D /* forgotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forgotViewController.swift; sourceTree = "<group>"; };
+		6930441927E377E200A10B7D /* changeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changeViewController.swift; sourceTree = "<group>"; };
 		693D90BE27E0B40C00CB0AC5 /* Points.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Points.swift; sourceTree = "<group>"; };
 		693D90C127E0B5DF00CB0AC5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		693D90C527E0C9F400CB0AC5 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
@@ -50,7 +59,6 @@
 		6994617E27DF6E6B0083D91B /* urna.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = urna.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6994618127DF6E6B0083D91B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6994618327DF6E6B0083D91B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6994618527DF6E6B0083D91B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6994618827DF6E6B0083D91B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6994618A27DF6E6D0083D91B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6994618D27DF6E6D0083D91B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -160,6 +168,7 @@
 		6994619527DF72A20083D91B /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				6930440F27E3439B00A10B7D /* Auth.storyboard */,
 				6994618727DF6E6B0083D91B /* Main.storyboard */,
 				6994618C27DF6E6D0083D91B /* LaunchScreen.storyboard */,
 			);
@@ -169,11 +178,13 @@
 		6994619627DF72BD0083D91B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				6994618527DF6E6B0083D91B /* ViewController.swift */,
 				6994619827DF76390083D91B /* LoginViewController.swift */,
 				693D90C527E0C9F400CB0AC5 /* RegistrationViewController.swift */,
 				693D90C727E0CF0C00CB0AC5 /* EnterViewController.swift */,
 				6900A1C327E1E755006DAB39 /* MapViewController.swift */,
+				6930440D27E33E4D00A10B7D /* AuthViewController.swift */,
+				6930441727E377D200A10B7D /* forgotViewController.swift */,
+				6930441927E377E200A10B7D /* changeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -181,6 +192,7 @@
 		6994619727DF72D40083D91B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6930441527E35C5F00A10B7D /* RoundedTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -347,6 +359,7 @@
 				699461C127DF7B2D0083D91B /* Poppins-SemiBold.ttf in Resources */,
 				699461B927DF7B2D0083D91B /* Poppins-Regular.ttf in Resources */,
 				699461C327DF7B2D0083D91B /* Poppins-Italic.ttf in Resources */,
+				6930441027E3439B00A10B7D /* Auth.storyboard in Resources */,
 				699461BF27DF7B2D0083D91B /* Poppins-BoldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,11 +372,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				693D90C627E0C9F400CB0AC5 /* RegistrationViewController.swift in Sources */,
+				6930441827E377D200A10B7D /* forgotViewController.swift in Sources */,
+				6930441A27E377E200A10B7D /* changeViewController.swift in Sources */,
 				6900A1C627E223F6006DAB39 /* Users.swift in Sources */,
+				6930440E27E33E4D00A10B7D /* AuthViewController.swift in Sources */,
 				693D90C827E0CF0D00CB0AC5 /* EnterViewController.swift in Sources */,
 				6994619927DF76390083D91B /* LoginViewController.swift in Sources */,
-				6994618627DF6E6B0083D91B /* ViewController.swift in Sources */,
 				6994618227DF6E6B0083D91B /* AppDelegate.swift in Sources */,
+				6930441627E35C5F00A10B7D /* RoundedTextField.swift in Sources */,
 				693D90BF27E0B40C00CB0AC5 /* Points.swift in Sources */,
 				6994618427DF6E6B0083D91B /* SceneDelegate.swift in Sources */,
 				6900A1C427E1E755006DAB39 /* MapViewController.swift in Sources */,
@@ -519,7 +535,7 @@
 				INFOPLIST_FILE = urna/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Auth;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -547,7 +563,7 @@
 				INFOPLIST_FILE = urna/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Auth;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
