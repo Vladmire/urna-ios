@@ -12,6 +12,11 @@ class MapViewController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
     
+    @IBAction func showFilter(sender: UIButton) {
+        performSegue(withIdentifier: "filter", sender: nil)
+        
+    }
+    
     var points: [Point] = [Point(name: "campus A", type: "learning campus", location: "Chekhov Street, 22 Taganrog Rostov Oblast Russia 347922", image: "campusA"),
                            Point(name: "campus B", type: "learning campus", location: "Chekhov Street, 24 Taganrog Rostov Oblast Russia 347922", image: "campusB"),
                            Point(name: "campus V", type: "learning campus", location: "Petrovskaya Street, 81 Taganrog Rostov Oblast Russia 347900", image: "campusV"),
@@ -28,6 +33,7 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.backButtonTitle = ""
         //let placeMarks
         var annotations: [MKPointAnnotation] = []
         let group = DispatchGroup()

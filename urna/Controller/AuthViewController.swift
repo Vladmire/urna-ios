@@ -20,8 +20,7 @@ class AuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        let socialButtons = UIButton(type: .system)
-//        socialButtons.backgroundColor =
+        navigationItem.backButtonTitle = ""
     }
     
     // MARK: - open with safari function

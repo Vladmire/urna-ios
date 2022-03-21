@@ -43,7 +43,8 @@ class RegistrationViewController: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        navigationItem.backButtonTitle = ""
         // Hide the keyboard
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         tap.cancelsTouchesInView = false
@@ -77,8 +78,6 @@ class RegistrationViewController: UIViewController  {
             present(alertController, animated: true, completion: nil)
         } else {
             performSegue(withIdentifier: "registration", sender: nil)
-//            let vc = storyboard?.instantiateViewController(withIdentifier: "UIViewController-hnN-yL-pnt") as! MapViewController
-//            navigationController?.pushViewController(vc, animated: true)
         
         
             
