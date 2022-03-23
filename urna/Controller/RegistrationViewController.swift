@@ -77,7 +77,9 @@ class RegistrationViewController: UIViewController  {
             
             present(alertController, animated: true, completion: nil)
         } else {
-            performSegue(withIdentifier: "registration", sender: nil)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let tabBarController = storyboard.instantiateInitialViewController()!
+            view.window?.windowScene?.windows.first?.rootViewController = tabBarController
         
         
             

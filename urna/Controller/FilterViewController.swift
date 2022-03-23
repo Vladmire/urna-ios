@@ -8,22 +8,47 @@
 import UIKit
 
 class FilterViewController: UIViewController {
-    
+    var butTapped = Array(repeating: true, count: 3)
     @IBOutlet var filterButton: [UIButton]!
     @IBAction func filterTapped(sender: UIButton) {
         
         switch sender.tag {
         case 1:
-            
-            sender.backgroundColor = UIColor(named: "filterBgTapped")
-            sender.tintColor = UIColor(named: "filterTappedTint")
-            
+            if butTapped[0] {
+                butTapped[0] = false
+                sender.backgroundColor = UIColor(named: "filterBgTapped")
+                sender.tintColor = UIColor(named: "filterTappedTint")
+                
+            } else {
+                butTapped[0] = true
+                sender.backgroundColor = UIColor(named: "filterBg")
+                sender.tintColor = UIColor.systemGray
+                
+            }
         case 2:
-            sender.backgroundColor = UIColor(named: "filterBgTapped")
-            sender.tintColor = UIColor(named: "filterTappedTint")
+            if butTapped[1] {
+                butTapped[1] = false
+                sender.backgroundColor = UIColor(named: "filterBgTapped")
+                sender.tintColor = UIColor(named: "filterTappedTint")
+                
+            } else {
+                butTapped[1] = true
+                sender.backgroundColor = UIColor(named: "filterBg")
+                sender.tintColor = UIColor.systemGray
+                
+            }
         case 3:
-            sender.backgroundColor = UIColor(named: "filterBgTapped")
-            sender.tintColor = UIColor(named: "filterTappedTint")
+            if butTapped[2] {
+                butTapped[2] = false
+                sender.backgroundColor = UIColor(named: "filterBgTapped")
+                sender.tintColor = UIColor(named: "filterTappedTint")
+                
+            } else {
+                butTapped[2] = true
+                sender.backgroundColor = UIColor(named: "filterBg")
+                sender.tintColor = UIColor.systemGray
+                
+            }
         default: break
         }
     }

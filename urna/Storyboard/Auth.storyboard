@@ -242,7 +242,7 @@
                         <outlet property="emailTextField" destination="vQ2-fC-xvV" id="ehh-VZ-jH7"/>
                         <outlet property="nameTextField" destination="XDd-M8-ryL" id="FiS-np-QeY"/>
                         <outlet property="passwordTextField" destination="Aj9-Ex-K8Y" id="6vU-rW-mgc"/>
-                        <segue destination="kWJ-2D-XjY" kind="show" identifier="registration" id="oLM-da-SqG"/>
+                        <segue destination="kWJ-2D-XjY" kind="showDetail" identifier="registration" id="oLM-da-SqG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SGE-Wd-AWy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -393,7 +393,7 @@
                         <outletCollection property="socialButtons" destination="gR4-qh-qPb" collectionClass="NSMutableArray" id="zVq-qt-kIt"/>
                         <outletCollection property="socialButtons" destination="plM-Rq-M5k" collectionClass="NSMutableArray" id="3KH-Hz-ZHc"/>
                         <outletCollection property="socialButtons" destination="WaK-7z-pUK" collectionClass="NSMutableArray" id="LrY-A9-8fl"/>
-                        <segue destination="kWJ-2D-XjY" kind="show" identifier="enter" id="2Zb-mB-37M"/>
+                        <segue destination="kWJ-2D-XjY" kind="showDetail" identifier="enter" id="2Zb-mB-37M"/>
                         <segue destination="iFb-ce-ALl" kind="show" identifier="forgot" id="qEJ-sD-3Lv"/>
                     </connections>
                 </viewController>
@@ -596,7 +596,7 @@
                                             <color key="baseBackgroundColor" name="mainMarine"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="kWJ-2D-XjY" kind="show" id="r1r-e9-n9R"/>
+                                            <segue destination="kWJ-2D-XjY" kind="showDetail" id="r1r-e9-n9R"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -655,8 +655,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="oLM-da-SqG"/>
-        <segue reference="wfa-fj-5xg"/>
+        <segue reference="r1r-e9-n9R"/>
+        <segue reference="w4T-hO-fY9"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="EllipseMarine" width="55" height="55"/>

@@ -22,13 +22,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         navBarAppearance.setBackIndicatorImage(backButtonImage, transitionMaskImage: backButtonImage)
         navBarAppearance.configureWithTransparentBackground()
-        
-        
-        
+
         UINavigationBar.appearance().tintColor = .white
         UINavigationBar.appearance().standardAppearance = navBarAppearance
         UINavigationBar.appearance().compactAppearance = navBarAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
+        
+        
+        let tabBarAppearance = UITabBarAppearance()
+        tabBarAppearance.configureWithOpaqueBackground()
+        
+        UITabBar.appearance().tintColor = UIColor(named: "mainMarine")
+        UITabBar.appearance().standardAppearance = tabBarAppearance
         
         return true
     }

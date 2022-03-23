@@ -52,22 +52,22 @@ class EnterViewController: UIViewController {
     // MARK: - forgot password action
     
     @IBAction func enterButtonTapped(sender: UIButton) {
-        //[nameTextField, passwordTextField].forEach({ $0?.text = "123" })
+        [nameTextField, passwordTextField].forEach({ $0?.text = "123" })
+        
         if nameTextField.text == "" || passwordTextField.text == "" {
             let alertController = UIAlertController(title: "Oops", message: "Please note that all fields are required.", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alertController.addAction(alertAction)
             
             present(alertController, animated: true, completion: nil)
-        } else
-        {
-            performSegue(withIdentifier: "enter", sender: nil)
+        } else {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let tabBarController = storyboard.instantiateInitialViewController()!
+            view.window?.windowScene?.windows.first?.rootViewController = tabBarController
         }
     }
     
     @IBAction func forgotButtonTapped(sender: UIButton) {
-        //[nameTextField, passwordTextField].forEach({ $0?.text = "123" })
-        
         performSegue(withIdentifier: "forgot", sender: nil)
     }
     
