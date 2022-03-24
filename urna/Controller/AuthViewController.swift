@@ -12,10 +12,6 @@ import UIKit
 class AuthViewController: UIViewController {
     
     let socialLinks = ["https://vk.com", "https:google.com", "https://facebook.com"]
-    
-//    let socialButton: UIButton {
-//
-//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,8 +8,16 @@
 import Foundation
 
 struct Point {
+    
+    enum PointType: String {
+        case paper
+        case plastic
+        case bio
+        case none
+    }
+    
     var name: String = ""
-    var type: String = ""
+    var type: PointType = .none
     var location: String = ""
     var image: String = ""
 }

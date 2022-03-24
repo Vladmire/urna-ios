@@ -14,8 +14,19 @@ class EnterViewController: UIViewController {
     
     @IBOutlet var socialButtons: [UIButton]!
     
-    @IBOutlet var nameTextField: RoundedTextField!
-    @IBOutlet var passwordTextField: RoundedTextField!
+    @IBOutlet var nameTextField: RoundedTextField! {
+        didSet {
+            nameTextField.tag = 1
+            nameTextField.becomeFirstResponder()
+            nameTextField.delegate = self
+        }
+    }
+    @IBOutlet var passwordTextField: RoundedTextField! {
+        didSet {
+            passwordTextField.tag = 2
+            passwordTextField.delegate = self
+        }
+    }
     
     @IBAction func buttonTapped(_ sender: UIButton) {
         switch sender.tag {
@@ -72,4 +83,15 @@ class EnterViewController: UIViewController {
     }
     
 
+}
+
+extension EnterViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextTextField = view.viewWithTag(textField.tag + 1) {
+            textField.resignFirstResponder()
+            nextTextField.becomeFirstResponder()
+        }
+        
+        return true
+    }
 }

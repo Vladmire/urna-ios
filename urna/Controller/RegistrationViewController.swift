@@ -17,16 +17,19 @@ class RegistrationViewController: UIViewController  {
         didSet {
             nameTextField.tag = 1
             nameTextField.becomeFirstResponder()
+            nameTextField.delegate = self
         }
     }
     @IBOutlet var emailTextField: RoundedTextField! {
         didSet {
             emailTextField.tag = 2
+            emailTextField.delegate = self
         }
     }
     @IBOutlet var passwordTextField: RoundedTextField! {
         didSet {
             passwordTextField.tag = 3
+            passwordTextField.delegate = self
         }
     }
     
