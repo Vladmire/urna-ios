@@ -14,7 +14,7 @@ class MapViewController: UIViewController {
     
     @IBAction func showFilter(sender: UIButton) {
         performSegue(withIdentifier: "filter", sender: nil)
-        
+
     }
     
     var points: [Point] = [Point(name: "campus A", type: .none, location: "Chekhov Street, 22 Taganrog Rostov Oblast Russia 347922", image: "campusA"),

@@ -9,6 +9,12 @@ import UIKit
 
 class AccountViewController: UIViewController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+    }
+    
     var user: User = User(login: "admin", password: "admin", email: "dubo@sfedu.ru", image: "user photo", name: "Gosha", gender: .male)
     
     
@@ -32,15 +38,23 @@ class AccountViewController: UIViewController {
     @IBOutlet var userAvatar: UIImageView! {
         didSet {
             userAvatar.image  = UIImage(named: user.image)
-            userAvatar.layer.cornerRadius = 25.0
+            userAvatar.layer.cornerRadius = 75.0
             userAvatar.layer.masksToBounds = true
         }
     
     }
     @IBOutlet var addImage: UIButton! {
         didSet {
-            addImage.layer.cornerRadius = 15.0
+            addImage.layer.cornerRadius = addImage.frame.width / 2.0
             addImage.setTitle("", for: .normal)
+        }
+    }
+    
+    @IBOutlet var changeValue: [UIButton]! {
+        didSet {
+            for button in changeValue {
+                button.setTitle("", for: .normal)
+            }
         }
     }
     // MARK: - choose user photo
@@ -77,11 +91,14 @@ class AccountViewController: UIViewController {
     
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-    }
+    
+    
+    
+    // MARK: - change user's settings
+    
+    
+    
+    
 }
 
 extension AccountViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
