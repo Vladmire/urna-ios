@@ -119,10 +119,13 @@
                                                             </label>
                                                         </subviews>
                                                     </stackView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2Q-8s-BIt">
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2Q-8s-BIt">
                                                         <rect key="frame" x="261" y="0.0" width="48" height="50"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="pencilAcc"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="pencilAcc" title=""/>
+                                                        <connections>
+                                                            <action selector="pencilButtonTappedWithSender:" destination="AXz-oC-UfT" eventType="touchUpInside" id="bx6-V4-0vA"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -170,6 +173,9 @@
                                                         <rect key="frame" x="261" y="0.0" width="48" height="50"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="pencilAcc"/>
+                                                        <connections>
+                                                            <action selector="pencilButtonTappedWithSender:" destination="AXz-oC-UfT" eventType="touchUpInside" id="hOI-0J-e3y"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -216,6 +222,9 @@
                                                         <rect key="frame" x="262" y="0.0" width="48" height="50"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="pencilAcc"/>
+                                                        <connections>
+                                                            <action selector="pencilButtonTappedWithSender:" destination="AXz-oC-UfT" eventType="touchUpInside" id="gnO-r1-nIO"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -263,6 +272,9 @@
                                                         <rect key="frame" x="262" y="0.0" width="48" height="50"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="pencilAcc"/>
+                                                        <connections>
+                                                            <action selector="pencilButtonTappedWithSender:" destination="AXz-oC-UfT" eventType="touchUpInside" id="KUy-SY-gDS"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -321,7 +333,7 @@
                                 <rect key="frame" x="0.0" y="150" width="414" height="188"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Yiy-8G-5vA">
-                                        <rect key="frame" x="132" y="2" width="151" height="148"/>
+                                        <rect key="frame" x="131.5" y="1.5" width="151" height="148"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>

@@ -12,11 +12,33 @@ class AccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        view.addSubview(visualEffectView)
+        visualEffectView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        visualEffectView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        visualEffectView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        visualEffectView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        
+        visualEffectView.alpha = 0
     }
     
     var user: User = User(login: "admin", password: "admin", email: "dubo@sfedu.ru", image: "user photo", name: "Gosha", gender: .male)
+    //MARK: - properties
     
+    lazy var popUpWindow: PopUpWindowAccount = {
+        let view = PopUpWindowAccount()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = 10.0
+        view.delegate = self
+        return view
+    }()
+    
+    let visualEffectView: UIVisualEffectView = {
+        let blurEffect = UIBlurEffect(style: .light)
+        let view = UIVisualEffectView(effect: blurEffect)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    //MARK: - selectors
     
     @IBOutlet var username: [UILabel]! {
         didSet {
@@ -49,13 +71,38 @@ class AccountViewController: UIViewController {
             addImage.setTitle("", for: .normal)
         }
     }
-    
+    // MARK: - change user information
     @IBOutlet var changeValue: [UIButton]! {
         didSet {
             for button in changeValue {
                 button.setTitle("", for: .normal)
             }
         }
+    }
+    @IBAction func pencilButtonTapped(sender: UIButton) {
+        if sender.tag == 1 {
+            view.addSubview(popUpWindow)
+            popUpWindow.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -40).isActive = true
+            popUpWindow.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+            popUpWindow.heightAnchor.constraint(equalToConstant: view.frame.width - 64).isActive = true
+            popUpWindow.widthAnchor.constraint(equalToConstant: view.frame.width - 64).isActive = true
+            
+            popUpWindow.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            popUpWindow.alpha = 0
+            
+            UIView.animate(withDuration: 0.5) {
+                self.visualEffectView.alpha = 1
+                self.popUpWindow.alpha = 1
+                self.popUpWindow.transform = CGAffineTransform.identity
+            }
+        }
+    }
+    // MARK: - delete logout buttons
+    @IBAction func logout(sender: UIButton) {
+        
+    }
+    @IBAction func deleteAccount(sender: UIButton) {
+        
     }
     // MARK: - choose user photo
     @IBAction func pickUserImage() {
@@ -99,6 +146,19 @@ class AccountViewController: UIViewController {
     
     
     
+}
+
+extension AccountViewController: PopUpDelegate {
+    func handleDismissal() {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.visualEffectView.alpha = 0
+            self.popUpWindow.alpha = 0
+            self.popUpWindow.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        }) {(_) in
+            self.popUpWindow.removeFromSuperview()
+    }
+    
+    }
 }
 
 extension AccountViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
