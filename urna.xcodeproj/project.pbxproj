@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6900A1C427E1E755006DAB39 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6900A1C327E1E755006DAB39 /* MapViewController.swift */; };
 		6900A1C627E223F6006DAB39 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6900A1C527E223F6006DAB39 /* Users.swift */; };
+		690CCB1627F47A3200CF0A36 /* PopUpWindowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690CCB1527F47A3200CF0A36 /* PopUpWindowViewController.swift */; };
 		690F9E2B27E4A7A400F2DC2E /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690F9E2A27E4A7A400F2DC2E /* NavigationController.swift */; };
 		691D4D9927E8AFBF000C82C9 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691D4D9827E8AFBF000C82C9 /* FilterViewController.swift */; };
 		6930440E27E33E4D00A10B7D /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6930440D27E33E4D00A10B7D /* AuthViewController.swift */; };
@@ -52,6 +53,7 @@
 /* Begin PBXFileReference section */
 		6900A1C327E1E755006DAB39 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		6900A1C527E223F6006DAB39 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		690CCB1527F47A3200CF0A36 /* PopUpWindowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWindowViewController.swift; sourceTree = "<group>"; };
 		690F9E2A27E4A7A400F2DC2E /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		691D4D9827E8AFBF000C82C9 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		6930440D27E33E4D00A10B7D /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				690F9E2A27E4A7A400F2DC2E /* NavigationController.swift */,
 				691D4D9827E8AFBF000C82C9 /* FilterViewController.swift */,
 				6964757727EB353100397A0D /* AccountViewController.swift */,
+				690CCB1527F47A3200CF0A36 /* PopUpWindowViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				6994619927DF76390083D91B /* LoginViewController.swift in Sources */,
 				6994618227DF6E6B0083D91B /* AppDelegate.swift in Sources */,
 				690F9E2B27E4A7A400F2DC2E /* NavigationController.swift in Sources */,
+				690CCB1627F47A3200CF0A36 /* PopUpWindowViewController.swift in Sources */,
 				6930441627E35C5F00A10B7D /* RoundedTextField.swift in Sources */,
 				6964757827EB353100397A0D /* AccountViewController.swift in Sources */,
 				698EF77727F314F8006CA2CF /* PopUpWindowAccount.swift in Sources */,

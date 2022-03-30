@@ -33,7 +33,7 @@ class AccountViewController: UIViewController {
     }()
     
     let visualEffectView: UIVisualEffectView = {
-        let blurEffect = UIBlurEffect(style: .light)
+        let blurEffect = UIBlurEffect(style: .dark)
         let view = UIVisualEffectView(effect: blurEffect)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -61,6 +61,8 @@ class AccountViewController: UIViewController {
         didSet {
             userAvatar.image  = UIImage(named: user.image)
             userAvatar.layer.cornerRadius = 75.0
+            userAvatar.layer.borderWidth = 4
+            userAvatar.layer.borderColor = UIColor.white.cgColor
             userAvatar.layer.masksToBounds = true
         }
     
@@ -68,6 +70,8 @@ class AccountViewController: UIViewController {
     @IBOutlet var addImage: UIButton! {
         didSet {
             addImage.layer.cornerRadius = addImage.frame.width / 2.0
+            
+            
             addImage.setTitle("", for: .normal)
         }
     }
@@ -84,7 +88,7 @@ class AccountViewController: UIViewController {
             view.addSubview(popUpWindow)
             popUpWindow.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -40).isActive = true
             popUpWindow.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-            popUpWindow.heightAnchor.constraint(equalToConstant: view.frame.width - 64).isActive = true
+            popUpWindow.heightAnchor.constraint(equalToConstant: view.frame.width - 192).isActive = true
             popUpWindow.widthAnchor.constraint(equalToConstant: view.frame.width - 64).isActive = true
             
             popUpWindow.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
