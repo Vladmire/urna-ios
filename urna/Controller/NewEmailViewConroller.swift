@@ -1,19 +1,18 @@
 //
-//  PopUpWindowViewController.swift
+//  NewEmailViewConroller.swift
 //  urna
 //
-//  Created by imac44 on 30.03.2022.
+//  Created by imac44 on 31.03.2022.
 //
 
 import UIKit
 
-class PopUpWindowViewController: UIViewController {
-    
-    
+class NewEmailViewConroller: UIViewController {
+
     //MARK: - properties
     
-    lazy var popUpWindow: PopUpWindowAccount = {
-        let view = PopUpWindowAccount()
+    lazy var newEmail: NewEmailView = {
+        let view = NewEmailView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 10.0
         return view
@@ -51,34 +50,34 @@ class PopUpWindowViewController: UIViewController {
         
         visualEffectView.alpha = 0
         
-        popUpWindow.saveButton.addTarget(self, action: #selector(saveButtonPressed), for: .touchUpInside)
-        popUpWindow.cancelButton.addTarget(self, action: #selector(cancelButtonPressed), for: .touchUpInside)
+        newEmail.saveButton.addTarget(self, action: #selector(saveButtonPressed), for: .touchUpInside)
+        newEmail.cancelButton.addTarget(self, action: #selector(cancelButtonPressed), for: .touchUpInside)
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        view.addSubview(popUpWindow)
-        popUpWindow.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -40).isActive = true
-        popUpWindow.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        popUpWindow.heightAnchor.constraint(equalToConstant: view.frame.width - 170).isActive = true
-        popUpWindow.widthAnchor.constraint(equalToConstant: view.frame.width - 64).isActive = true
+        view.addSubview(newEmail)
+        newEmail.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -40).isActive = true
+        newEmail.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        newEmail.heightAnchor.constraint(equalToConstant: view.frame.width - 170).isActive = true
+        newEmail.widthAnchor.constraint(equalToConstant: view.frame.width - 64).isActive = true
         
-        popUpWindow.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-        popUpWindow.alpha = 0
+        newEmail.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        newEmail.alpha = 0
         
         UIView.animate(withDuration: 0.5) {
             self.visualEffectView.alpha = 1
-            self.popUpWindow.alpha = 1
-            self.popUpWindow.transform = CGAffineTransform.identity
+            self.newEmail.alpha = 1
+            self.newEmail.transform = CGAffineTransform.identity
         }
         
     }
     
     @objc private func saveButtonPressed() {
         dismiss(animated: false)
-        completion(popUpWindow.textField.text ?? "")
+        completion(newEmail.textField.text ?? "")
     }
     
     @objc private func cancelButtonPressed() {
@@ -87,5 +86,5 @@ class PopUpWindowViewController: UIViewController {
     
     // MARK: - Navigation
 
-   
+
 }

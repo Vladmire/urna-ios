@@ -11,33 +11,10 @@ class AccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.addSubview(visualEffectView)
-        visualEffectView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        visualEffectView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        visualEffectView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        visualEffectView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        
-        visualEffectView.alpha = 0
     }
     
     var user: User = User(login: "admin", password: "admin", email: "dubo@sfedu.ru", image: "user photo", name: "Gosha", gender: .male)
-    //MARK: - properties
     
-    lazy var popUpWindow: PopUpWindowAccount = {
-        let view = PopUpWindowAccount()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 10.0
-        view.delegate = self
-        return view
-    }()
-    
-    let visualEffectView: UIVisualEffectView = {
-        let blurEffect = UIBlurEffect(style: .dark)
-        let view = UIVisualEffectView(effect: blurEffect)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
     //MARK: - selectors
     
     @IBOutlet var username: [UILabel]! {
@@ -70,11 +47,11 @@ class AccountViewController: UIViewController {
     @IBOutlet var addImage: UIButton! {
         didSet {
             addImage.layer.cornerRadius = addImage.frame.width / 2.0
-            
-            
             addImage.setTitle("", for: .normal)
         }
     }
+    
+    
     // MARK: - change user information
     @IBOutlet var changeValue: [UIButton]! {
         didSet {
@@ -84,21 +61,39 @@ class AccountViewController: UIViewController {
         }
     }
     @IBAction func pencilButtonTapped(sender: UIButton) {
-        if sender.tag == 1 {
-            view.addSubview(popUpWindow)
-            popUpWindow.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -40).isActive = true
-            popUpWindow.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-            popUpWindow.heightAnchor.constraint(equalToConstant: view.frame.width - 192).isActive = true
-            popUpWindow.widthAnchor.constraint(equalToConstant: view.frame.width - 64).isActive = true
-            
-            popUpWindow.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-            popUpWindow.alpha = 0
-            
-            UIView.animate(withDuration: 0.5) {
-                self.visualEffectView.alpha = 1
-                self.popUpWindow.alpha = 1
-                self.popUpWindow.transform = CGAffineTransform.identity
+        switch sender.tag {
+        case 1:
+            let controller = PopUpWindowViewController { [weak self] text in
+                self?.user.name = text
+                self?.username[0].text = text
+                self?.username[1].text = text
             }
+            controller.modalPresentationStyle = .overFullScreen
+            self.present(controller, animated: false, completion: nil)
+        
+        case 2:
+            let controller = ChangeGenderViewController { [weak self] text in
+                //self?.user.gender = text
+                self?.gender.text = text
+            }
+            controller.modalPresentationStyle = .overFullScreen
+            self.present(controller, animated: false, completion: nil)
+        case 3:
+            let controller = NewEmailViewConroller { [weak self] text in
+                self?.user.email = text
+                self?.email.text = text
+            }
+            controller.modalPresentationStyle = .overFullScreen
+            self.present(controller, animated: false, completion: nil)
+        case 4:
+            let controller = NewPasswordViewController { [weak self] text in
+                self?.user.password = text
+                self?.password.text = text
+            }
+            controller.modalPresentationStyle = .overFullScreen
+            self.present(controller, animated: false, completion: nil)
+        default:
+            print("wrong tag sender")
         }
     }
     // MARK: - delete logout buttons
@@ -138,32 +133,9 @@ class AccountViewController: UIViewController {
         
         present(photoSourceRequestController, animated: true, completion: nil)
     }
-    
-    
-    
-    
-    
-    
-    
-    // MARK: - change user's settings
-    
-    
-    
-    
 }
 
-extension AccountViewController: PopUpDelegate {
-    func handleDismissal() {
-        UIView.animate(withDuration: 0.5, animations: {
-            self.visualEffectView.alpha = 0
-            self.popUpWindow.alpha = 0
-            self.popUpWindow.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-        }) {(_) in
-            self.popUpWindow.removeFromSuperview()
-    }
-    
-    }
-}
+
 
 extension AccountViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
