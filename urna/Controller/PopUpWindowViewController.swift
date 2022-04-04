@@ -37,8 +37,6 @@ class PopUpWindowViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    //var changeNameView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,8 +75,16 @@ class PopUpWindowViewController: UIViewController {
     }
     
     @objc private func saveButtonPressed() {
-        dismiss(animated: false)
-        completion(popUpWindow.textField.text ?? "")
+        if popUpWindow.textField.text != "" {
+            dismiss(animated: false)
+            completion(popUpWindow.textField.text ?? "")
+        } else {
+            let alertController = UIAlertController(title: "Oops", message: "The textfield is blank", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(alertAction)
+            
+            present(alertController, animated: true, completion: nil)
+        }
     }
     
     @objc private func cancelButtonPressed() {

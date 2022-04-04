@@ -76,15 +76,11 @@ class NewPasswordViewController: UIViewController {
     }
     
     @objc private func saveButtonPressed() {
-        if (newPassword.textField.text == newPassword.newTextField.text) {
+        if (newPassword.textField.text == newPassword.newTextField.text && newPassword.textField.text != "") {
             dismiss(animated: false)
             completion(newPassword.textField.text ?? "")
         } else {
-//            func clearTextfields() {
-//                newPassword.textField.text = ""
-//                newPassword.newTextField.text = ""
-//            }
-            let alertController = UIAlertController(title: "Oops", message: "Passwords are not equal. Try again!", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Oops", message: "Please check both fields. Try again!", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alertController.addAction(alertAction)
             

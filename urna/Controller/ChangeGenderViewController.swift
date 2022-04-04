@@ -76,8 +76,16 @@ class ChangeGenderViewController: UIViewController {
     }
     
     @objc private func saveButtonPressed() {
-        dismiss(animated: false)
-        completion(changeGender.textField.text ?? "")
+        if changeGender.textField.text != "" {
+            dismiss(animated: false)
+            completion(changeGender.textField.text ?? "")
+        } else {
+            let alertController = UIAlertController(title: "Oops", message: "The textfield is blank", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(alertAction)
+            
+            present(alertController, animated: true, completion: nil)
+        }
     }
     
     @objc private func cancelButtonPressed() {

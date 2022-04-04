@@ -1,18 +1,19 @@
 //
-//  NewEmailViewConroller.swift
+//  DeleteAccountViewController.swift
 //  urna
 //
-//  Created by imac44 on 31.03.2022.
+//  Created by imac44 on 04.04.2022.
 //
 
 import UIKit
 
-class NewEmailViewConroller: UIViewController {
-
+class DeleteAccountViewController: UIViewController {
+    
+    
     //MARK: - properties
     
-    lazy var newEmail: NewEmailView = {
-        let view = NewEmailView()
+    lazy var deleteAccount: DeleteAccountView = {
+        let view = DeleteAccountView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 10.0
         return view
@@ -24,7 +25,6 @@ class NewEmailViewConroller: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
     
     let completion: (String) -> Void
     
@@ -50,43 +50,34 @@ class NewEmailViewConroller: UIViewController {
         
         visualEffectView.alpha = 0
         
-        newEmail.saveButton.addTarget(self, action: #selector(saveButtonPressed), for: .touchUpInside)
-        newEmail.cancelButton.addTarget(self, action: #selector(cancelButtonPressed), for: .touchUpInside)
+        deleteAccount.deleteButton.addTarget(self, action: #selector(deleteButtonPressed), for: .touchUpInside)
+        deleteAccount.cancelButton.addTarget(self, action: #selector(cancelButtonPressed), for: .touchUpInside)
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        view.addSubview(newEmail)
-        newEmail.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -40).isActive = true
-        newEmail.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        newEmail.heightAnchor.constraint(equalToConstant: view.frame.width - 170).isActive = true
-        newEmail.widthAnchor.constraint(equalToConstant: view.frame.width - 64).isActive = true
+        view.addSubview(deleteAccount)
+        deleteAccount.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -40).isActive = true
+        deleteAccount.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        deleteAccount.heightAnchor.constraint(equalToConstant: view.frame.width - 45).isActive = true
+        deleteAccount.widthAnchor.constraint(equalToConstant: view.frame.width - 64).isActive = true
         
-        newEmail.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-        newEmail.alpha = 0
+        deleteAccount.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        deleteAccount.alpha = 0
         
         UIView.animate(withDuration: 0.5) {
             self.visualEffectView.alpha = 1
-            self.newEmail.alpha = 1
-            self.newEmail.transform = CGAffineTransform.identity
+            self.deleteAccount.alpha = 1
+            self.deleteAccount.transform = CGAffineTransform.identity
         }
         
     }
     
-    @objc private func saveButtonPressed() {
-
-        if newEmail.textField.text != "" {
-            dismiss(animated: false)
-            completion(newEmail.textField.text ?? "")
-        } else {
-            let alertController = UIAlertController(title: "Oops", message: "The textfield is blank", preferredStyle: .alert)
-            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alertController.addAction(alertAction)
-            
-            present(alertController, animated: true, completion: nil)
-        }
+    @objc private func deleteButtonPressed() {
+        cancelButtonPressed()
+        completion("")
     }
     
     @objc private func cancelButtonPressed() {
@@ -95,5 +86,5 @@ class NewEmailViewConroller: UIViewController {
     
     // MARK: - Navigation
 
-
+   
 }

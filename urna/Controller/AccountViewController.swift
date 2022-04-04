@@ -95,12 +95,24 @@ class AccountViewController: UIViewController {
         default:
             print("wrong tag sender")
         }
+        print(user)
     }
     // MARK: - delete logout buttons
     @IBAction func logout(sender: UIButton) {
-        
+        let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+        let navigationController = storyboard.instantiateInitialViewController()!
+        view.window?.windowScene?.windows.first?.rootViewController = navigationController
     }
+    
     @IBAction func deleteAccount(sender: UIButton) {
+        let controller = DeleteAccountViewController { [weak self] _ in
+            let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+            let navigationController = storyboard.instantiateInitialViewController()!
+            self?.view.window?.windowScene?.windows.first?.rootViewController = navigationController
+        }
+        controller.modalPresentationStyle = .overFullScreen
+        self.present(controller, animated: false, completion: nil)
+        
         
     }
     // MARK: - choose user photo

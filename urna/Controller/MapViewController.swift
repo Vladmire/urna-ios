@@ -17,6 +17,8 @@ class MapViewController: UIViewController {
 
     }
     
+    
+    
     var points: [Point] = [Point(name: "campus A", type: .none, location: "Chekhov Street, 22 Taganrog Rostov Oblast Russia 347922", image: "campusA"),
                            Point(name: "campus B", type: .none, location: "Chekhov Street, 24 Taganrog Rostov Oblast Russia 347922", image: "campusB"),
                            Point(name: "campus V", type: .none, location: "Petrovskaya Street, 81 Taganrog Rostov Oblast Russia 347900", image: "campusV"),
@@ -24,17 +26,10 @@ class MapViewController: UIViewController {
                            Point(name: "campus D", type: .none, location: "Nekrasovskiy Lane, 44 Taganrog, Rostov Oblast Russia 347928", image: "campusD"),
                            Point(name: "campus I", type: .none, location: "Chekhov Street, 2 Taganrog Rostov Oblast Russia 347922", image: "campusI")]
     
-
-
-
-
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+         
         navigationItem.backButtonTitle = ""
-        //let placeMarks
         var annotations: [MKPointAnnotation] = []
         let group = DispatchGroup()
         
@@ -54,7 +49,6 @@ class MapViewController: UIViewController {
                             
                     let annotation = MKPointAnnotation()
                     annotation.title = point.name
-                    //annotation.subtitle = point.type
                             
                     if let location = placemark.location {
                         annotation.coordinate = location.coordinate
