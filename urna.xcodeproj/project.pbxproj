@@ -20,6 +20,8 @@
 		6924B7D027F5CDD400AD59FB /* NewEmailViewConroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6924B7CF27F5CDD400AD59FB /* NewEmailViewConroller.swift */; };
 		6924B7D227F5CF2800AD59FB /* NewPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6924B7D127F5CF2800AD59FB /* NewPasswordView.swift */; };
 		6924B7D427F5CF6E00AD59FB /* NewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6924B7D327F5CF6E00AD59FB /* NewPasswordViewController.swift */; };
+		692FC5A627FC5D3A0006A2A1 /* DetailPointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692FC5A527FC5D3A0006A2A1 /* DetailPointsViewController.swift */; };
+		692FC5A827FC6C960006A2A1 /* PointsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692FC5A727FC6C950006A2A1 /* PointsTableViewCell.swift */; };
 		6930440E27E33E4D00A10B7D /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6930440D27E33E4D00A10B7D /* AuthViewController.swift */; };
 		6930441027E3439B00A10B7D /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6930440F27E3439B00A10B7D /* Auth.storyboard */; };
 		6930441627E35C5F00A10B7D /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6930441527E35C5F00A10B7D /* RoundedTextField.swift */; };
@@ -72,6 +74,8 @@
 		6924B7CF27F5CDD400AD59FB /* NewEmailViewConroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEmailViewConroller.swift; sourceTree = "<group>"; };
 		6924B7D127F5CF2800AD59FB /* NewPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordView.swift; sourceTree = "<group>"; };
 		6924B7D327F5CF6E00AD59FB /* NewPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordViewController.swift; sourceTree = "<group>"; };
+		692FC5A527FC5D3A0006A2A1 /* DetailPointsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPointsViewController.swift; sourceTree = "<group>"; };
+		692FC5A727FC6C950006A2A1 /* PointsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsTableViewCell.swift; sourceTree = "<group>"; };
 		6930440D27E33E4D00A10B7D /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		6930440F27E3439B00A10B7D /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		6930441527E35C5F00A10B7D /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
@@ -230,6 +234,7 @@
 				6924B7CF27F5CDD400AD59FB /* NewEmailViewConroller.swift */,
 				6924B7D327F5CF6E00AD59FB /* NewPasswordViewController.swift */,
 				690FEB3C27FB031C004934FA /* DeleteAccountViewController.swift */,
+				692FC5A527FC5D3A0006A2A1 /* DetailPointsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -243,6 +248,7 @@
 				6924B7CD27F5CCFA00AD59FB /* NewEmailView.swift */,
 				6924B7D127F5CF2800AD59FB /* NewPasswordView.swift */,
 				690FEB3E27FB0364004934FA /* DeleteAccountView.swift */,
+				692FC5A727FC6C950006A2A1 /* PointsTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -437,6 +443,7 @@
 				690F9E2B27E4A7A400F2DC2E /* NavigationController.swift in Sources */,
 				690CCB1627F47A3200CF0A36 /* PopUpWindowViewController.swift in Sources */,
 				6924B7D427F5CF6E00AD59FB /* NewPasswordViewController.swift in Sources */,
+				692FC5A827FC6C960006A2A1 /* PointsTableViewCell.swift in Sources */,
 				6930441627E35C5F00A10B7D /* RoundedTextField.swift in Sources */,
 				6964757827EB353100397A0D /* AccountViewController.swift in Sources */,
 				6924B7CE27F5CCFA00AD59FB /* NewEmailView.swift in Sources */,
@@ -444,6 +451,7 @@
 				693D90BF27E0B40C00CB0AC5 /* Points.swift in Sources */,
 				6924B7CA27F5C55900AD59FB /* ChangeGenderViewController.swift in Sources */,
 				6924B7D227F5CF2800AD59FB /* NewPasswordView.swift in Sources */,
+				692FC5A627FC5D3A0006A2A1 /* DetailPointsViewController.swift in Sources */,
 				690FEB3F27FB0364004934FA /* DeleteAccountView.swift in Sources */,
 				6994618427DF6E6B0083D91B /* SceneDelegate.swift in Sources */,
 				6900A1C427E1E755006DAB39 /* MapViewController.swift in Sources */,
