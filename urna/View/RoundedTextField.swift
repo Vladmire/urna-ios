@@ -9,7 +9,7 @@ import UIKit
 
 class RoundedTextField: UITextField {
 
-    let padding = UIEdgeInsets(top: 7, left: 10, bottom: 7, right: 7)
+    private let padding = UIEdgeInsets(top: 7, left: 10, bottom: 7, right: 7)
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)
@@ -24,9 +24,9 @@ class RoundedTextField: UITextField {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        self.layer.borderWidth = 2.0
-        self.layer.borderColor = UIColor.systemGray5.cgColor
-        self.layer.cornerRadius = 20.0
-        self.layer.masksToBounds = true
+        layer.borderWidth = 2.0
+        layer.borderColor = UIColor.systemGray5.cgColor
+        layer.cornerRadius = 20.0
+        layer.masksToBounds = true
     }
 }

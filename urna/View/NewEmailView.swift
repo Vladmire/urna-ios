@@ -11,27 +11,12 @@ class NewEmailView: UIView {
 
     //MARK: - propeties
     
-    let titleLabel: UILabel = {
-        let label = ViewsFactory.createLabel(text: "Email", fontName: "Avenir", fontsize: 25)
-        return label
-    }()
-    let textLabel: UILabel = {
-        let label = ViewsFactory.createLabel(text: "Enter your new email", fontName: "Avenir", fontsize: 16)
-        return label
-    }()
-    let textField: UITextField = {
-        let textField = ViewsFactory.createTextField()
-        textField.autocorrectionType = .no
-        return textField
-    }()
-    let saveButton: UIButton = {
-        let button = ViewsFactory.createButton(title: "Save")
-        return button
-    }()
-    let cancelButton: UIButton = {
-        let button = ViewsFactory.createButton(title: "Cancel")
-        return button
-    }()
+    let titleLabel = ViewsFactory.createLabel(text: "Email", fontName: "Avenir", fontsize: 25)
+    let textLabel = ViewsFactory.createLabel(text: "Enter your new email", fontName: "Avenir", fontsize: 16)
+    let textField = ViewsFactory.createTextField()
+    let saveButton = ViewsFactory.createButton(title: "Save")
+    let cancelButton = ViewsFactory.createButton(title: "Cancel")
+
     
     //MARK: - Init
     override init(frame: CGRect) {
@@ -46,25 +31,19 @@ class NewEmailView: UIView {
         textLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15 ).isActive = true
         textLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25).isActive = true
         
-        
         addSubview(textField)
         textField.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: 15).isActive = true
         textField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25).isActive = true
         textField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25).isActive = true
-        
         textField.heightAnchor.constraint(equalToConstant: 46).isActive = true
-        
         
         addSubview(saveButton)
         saveButton.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 20).isActive = true
         saveButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25).isActive = true
         
-        
         addSubview(cancelButton)
         cancelButton.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 20).isActive = true
         cancelButton.trailingAnchor.constraint(equalTo: saveButton.leadingAnchor, constant: -45).isActive = true
-//        cancelButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 70).isActive = true
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

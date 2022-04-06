@@ -10,7 +10,7 @@ import UIKit
 
 struct ViewsFactory {
     
-    //MARK: - Create button
+    // MARK: - Create button
     
     static func createButton(title: String?,
                              titleColor: UIColor? = UIColor(named: "mainMarine"),
@@ -25,23 +25,29 @@ struct ViewsFactory {
         return button
     }
     
-    //MARK: - Create textfield
+    // MARK: - Create textfield
     
     static func createTextField() -> UITextField {
         let textField = RoundedTextField()
+        textField.autocorrectionType = .no
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }
     
-    //MARK: - Create label
+    // MARK: - Create label
     
-    static func createLabel(text: String?, fontName: String = "Avenir", fontsize: CGFloat = 10) -> UILabel {
+    static func createLabel(text: String?,
+                            fontName: String = "Avenir",
+                            fontsize: CGFloat = 10) -> UILabel {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
         label.font = UIFont(name: fontName, size: fontsize)
         label.text = text
         return label
     }
+    
+    // MARK: - Create image
     
     static func createImage(imageName: String,
                             cornerRadius: CGFloat = 0.0) -> UIImageView {

@@ -10,15 +10,16 @@ import Foundation
 struct User {
     
     enum Gender: String {
-        case male
-        case female
-        case hidden
+        case male = "male"
+        case female = "female"
+        case hidden = "hidden"
     }
     
-    var login: String = ""
-    var password: String = ""
-    var email: String = ""
-    var image: String = ""
-    var name: String = ""
-    var gender: Gender = .hidden
+    let userID: Int
+    let login: String
+    let password: String
+    let email: String
+    let image: String
+    let name: String
+    let gender: Gender?
 }

@@ -10,28 +10,12 @@ import UIKit
 class DeleteAccountView: UIView {
 
     //MARK: - propeties
-    let warningImage: UIImageView = {
-        let image = ViewsFactory.createImage(imageName: "warningVect")
-        return image
-    }()
-    let titleLabel: UILabel = {
-        let label = ViewsFactory.createLabel(text: "Are you sure to delete an account", fontName: "Avenir", fontsize: 25)
-        label.numberOfLines = 0
-        return label
-    }()
-    let textLabel: UILabel = {
-        let label = ViewsFactory.createLabel(text: "If you delete account you will lost your data", fontName: "Avenir", fontsize: 16)
-        label.numberOfLines = 0
-        return label
-    }()
-    let deleteButton: UIButton = {
-        let button = ViewsFactory.createButton(title: "Delete", titleColor: .white, backgroundColor: UIColor(named: "deleteColor"), cornerRadius: 20)
-        return button
-    }()
-    let cancelButton: UIButton = {
-        let button = ViewsFactory.createButton(title: "Cancel", titleColor: .white, backgroundColor: .gray, cornerRadius: 20)
-        return button
-    }()
+    let warningImage = ViewsFactory.createImage(imageName: "warningVect")
+    let titleLabel = ViewsFactory.createLabel(text: "Are you sure to delete an account", fontName: "Avenir", fontsize: 25)
+    let textLabel = ViewsFactory.createLabel(text: "If you delete account you will lost your data", fontName: "Avenir", fontsize: 16)
+    let deleteButton = ViewsFactory.createButton(title: "Delete", titleColor: .white, backgroundColor: UIColor(named: "deleteColor"), cornerRadius: 20)
+    let cancelButton = ViewsFactory.createButton(title: "Cancel", titleColor: .white, backgroundColor: .gray, cornerRadius: 20)
+
     
     //MARK: - Init
     override init(frame: CGRect) {
@@ -58,7 +42,6 @@ class DeleteAccountView: UIView {
         deleteButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60).isActive = true
         deleteButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60).isActive = true
         deleteButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        
         
         addSubview(cancelButton)
         cancelButton.topAnchor.constraint(equalTo: deleteButton.bottomAnchor, constant: 10).isActive = true

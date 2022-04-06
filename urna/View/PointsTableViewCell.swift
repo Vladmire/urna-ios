@@ -8,8 +8,8 @@
 import UIKit
 
 class PointsTableViewCell: UITableViewCell {
-    
-    
+
+// MARK: - properties
     
     @IBOutlet var usernameLabel: UILabel! {
         didSet {
@@ -38,7 +38,7 @@ class PointsTableViewCell: UITableViewCell {
     @IBOutlet var userRatingStar: [UIImageView]! {
         didSet {
             var i = 0
-            while i < pointRating {
+            while i < point.rating {
                 userRatingStar[i].image = UIImage(named: "filledStarVector")
                 i += 1
             }
@@ -46,7 +46,7 @@ class PointsTableViewCell: UITableViewCell {
         
     }
     
-    
+// MARK: - methods
 
     override func awakeFromNib() {
         super.awakeFromNib()

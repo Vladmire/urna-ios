@@ -13,11 +13,13 @@ struct Point {
         case paper
         case plastic
         case bio
-        case none
     }
     
-    var name: String = ""
-    var type: PointType = .none
-    var location: String = ""
-    var image: String = ""
+    let pointID: Int
+    let name: String
+    let type: PointType?
+    let location: String
+    let image: String
+    let schedule: String
+    let rating: Int
 }

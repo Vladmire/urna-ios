@@ -9,17 +9,28 @@ import UIKit
 
 class AccountViewController: UIViewController {
     
+    private let currentUser = UserManager.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // TODO: show loading indicator
+        pointsProvider.getPoints { [weak self] points, error in
+            // TODO: hide loading indicator
+            if let err = error {
+                //TODO: show error
+                print(err)
+            } else {
+                self?.showDownloadedPoints(points ?? [])
+            }
+        }
     }
-    
-    var user: User = User(login: "admin", password: "admin", email: "dubo@sfedu.ru", image: "user photo", name: "Gosha", gender: .male)
     
     //MARK: - selectors
     
     @IBOutlet var username: [UILabel]! {
         didSet {
-            username[0].text = user.name
+            username[0].text = currentUser.currentUser?.name
             username[1].text = user.name
         }
     }
@@ -64,7 +75,7 @@ class AccountViewController: UIViewController {
         switch sender.tag {
         case 1:
             let controller = PopUpWindowViewController { [weak self] text in
-                self?.user.name = text
+                //self?.user.name = text
                 self?.username[0].text = text
                 self?.username[1].text = text
             }
@@ -80,14 +91,14 @@ class AccountViewController: UIViewController {
             self.present(controller, animated: false, completion: nil)
         case 3:
             let controller = NewEmailViewConroller { [weak self] text in
-                self?.user.email = text
+                //self?.user.email = text
                 self?.email.text = text
             }
             controller.modalPresentationStyle = .overFullScreen
             self.present(controller, animated: false, completion: nil)
         case 4:
             let controller = NewPasswordViewController { [weak self] text in
-                self?.user.password = text
+                //self?.user.password = text
                 self?.password.text = text
             }
             controller.modalPresentationStyle = .overFullScreen
@@ -147,18 +158,14 @@ class AccountViewController: UIViewController {
     }
 }
 
-
-
-extension AccountViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    extension AccountViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            userAvatar.image = selectedImage
-            userAvatar.contentMode = .scaleToFill
-            userAvatar.clipsToBounds = true
+            if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                userAvatar.image = selectedImage
+                userAvatar.contentMode = .scaleToFill
+                userAvatar.clipsToBounds = true
+            }
+            dismiss(animated: true, completion: nil)
         }
-        
-        dismiss(animated: true, completion: nil)
-        
     }
-}
