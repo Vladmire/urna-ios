@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct Review {
+struct Review: Hashable {
     let userID: Int
     let pointID: Int
     let rating: Int

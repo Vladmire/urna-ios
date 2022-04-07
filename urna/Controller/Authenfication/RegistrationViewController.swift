@@ -87,15 +87,15 @@ class RegistrationViewController: UIViewController  {
         
             
             
-            user = User()
-            
-            user.login = nameTextField.text ?? ""
-            user.email = emailTextField.text ?? ""
-            user.password = passwordTextField.text ?? ""
+//            user = User(userID: nameTextField.text, login: <#T##String#>, password: <#T##String#>, email: <#T##String#>, image: <#T##String#>, name: <#T##String#>, gender: <#T##User.Gender?#>)
+//
+//            user.login =  ?? ""
+//            user.email = emailTextField.text ?? ""
+//            user.password = passwordTextField.text ?? ""
         
-            print("login \(user.login)")
-            print("email \(user.email)")
-            print("password \(user.password)")
+//            print("login \(user.login)")
+//            print("email \(user.email)")
+//            print("password \(user.password)")
         }
     }
     

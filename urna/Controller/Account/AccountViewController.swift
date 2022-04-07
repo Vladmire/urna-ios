@@ -9,68 +9,44 @@ import UIKit
 
 class AccountViewController: UIViewController {
     
-    private let currentUser = UserManager.shared
+    private let currentUser = UserManager.shared.currentUser
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //storyboard properties
         
-        // TODO: show loading indicator
-        pointsProvider.getPoints { [weak self] points, error in
-            // TODO: hide loading indicator
-            if let err = error {
-                //TODO: show error
-                print(err)
-            } else {
-                self?.showDownloadedPoints(points ?? [])
-            }
+        username[0].text = currentUser?.name
+        username[1].text = currentUser?.name
+        //gender.text = currentUser?.gender
+        email.text = currentUser?.email
+        password.text = currentUser?.password
+        
+        userAvatar.image  = UIImage(named: currentUser?.image ?? "accIcon")
+        userAvatar.layer.cornerRadius = 75.0
+        userAvatar.layer.borderWidth = 4
+        userAvatar.layer.borderColor = UIColor.white.cgColor
+        userAvatar.layer.masksToBounds = true
+        
+        addImage.layer.cornerRadius = addImage.frame.width / 2.0
+        addImage.setTitle("", for: .normal)
+        
+        for button in changeValue {
+            button.setTitle("", for: .normal)
         }
     }
     
     //MARK: - selectors
     
-    @IBOutlet var username: [UILabel]! {
-        didSet {
-            username[0].text = currentUser.currentUser?.name
-            username[1].text = user.name
-        }
-    }
+    @IBOutlet var username: [UILabel]!
     @IBOutlet var gender: UILabel!
-    @IBOutlet var email: UILabel!  {
-        didSet {
-            email.text = user.email
-        }
-    }
-    @IBOutlet var password: UILabel! {
-        didSet {
-            password.text = user.password
-        }
-    }
-    @IBOutlet var userAvatar: UIImageView! {
-        didSet {
-            userAvatar.image  = UIImage(named: user.image)
-            userAvatar.layer.cornerRadius = 75.0
-            userAvatar.layer.borderWidth = 4
-            userAvatar.layer.borderColor = UIColor.white.cgColor
-            userAvatar.layer.masksToBounds = true
-        }
-    
-    }
-    @IBOutlet var addImage: UIButton! {
-        didSet {
-            addImage.layer.cornerRadius = addImage.frame.width / 2.0
-            addImage.setTitle("", for: .normal)
-        }
-    }
+    @IBOutlet var email: UILabel!
+    @IBOutlet var password: UILabel!
+    @IBOutlet var userAvatar: UIImageView!
+    @IBOutlet var addImage: UIButton!
     
     
     // MARK: - change user information
-    @IBOutlet var changeValue: [UIButton]! {
-        didSet {
-            for button in changeValue {
-                button.setTitle("", for: .normal)
-            }
-        }
-    }
+    @IBOutlet var changeValue: [UIButton]!
     @IBAction func pencilButtonTapped(sender: UIButton) {
         switch sender.tag {
         case 1:
@@ -106,7 +82,6 @@ class AccountViewController: UIViewController {
         default:
             print("wrong tag sender")
         }
-        print(user)
     }
     // MARK: - delete logout buttons
     @IBAction func logout(sender: UIButton) {

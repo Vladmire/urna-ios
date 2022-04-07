@@ -11,6 +11,7 @@ import MapKit
 class MapViewController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
+    
     private let pointsProvider = PointsProvider()
     
     override func viewDidLoad() {
@@ -32,7 +33,7 @@ class MapViewController: UIViewController {
     // MARK: - Helpers
     
     private func showDownloadedPoints(_ points: [Point]) {
-        var annotations: [MKPointAnnotation] = []
+        var annotations: [MyAnnotation] = []
         let group = DispatchGroup()
         for point in points {
             group.enter()
@@ -46,8 +47,9 @@ class MapViewController: UIViewController {
                     return
                 }
                 if let placemark = placemarks?.first {
-                    let annotation = MKPointAnnotation()
+                    let annotation = MyAnnotation(point: point)
                     annotation.title = point.name
+                    
                     if let location = placemark.location {
                         annotation.coordinate = location.coordinate
                         annotations.append(annotation)
@@ -61,11 +63,31 @@ class MapViewController: UIViewController {
         }
     }
     
+    
+    
     // MARK: - Handlers
     
     @IBAction func showFilter(sender: UIButton) {
         performSegue(withIdentifier: "filter", sender: nil)
     }
-
+    
+    // MARK: - placemarks delegate
+    
+    
+    
 }
 
+extension MapViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        
+        guard let point = (view.annotation as? MyAnnotation)?.point else {
+            return
+        }
+        // create detail from storyboard
+        let detailVC = DetailPointsViewController(currentPoint: point)
+        detailVC.modalPresentationStyle = .popover
+        self.present(detailVC, animated: false, completion: nil)
+        
+    }
+}

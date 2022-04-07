@@ -626,11 +626,11 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="reviewcell" rowHeight="115" id="QCc-bR-pgI" customClass="PointsTableViewCell" customModule="urna" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="310.5" width="414" height="115"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="reviewcell" rowHeight="194" id="QCc-bR-pgI" customClass="PointsTableViewCell" customModule="urna" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="310.5" width="414" height="194"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QCc-bR-pgI" id="6pv-ih-82h">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="115"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="194"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="accIcon" translatesAutoresizingMaskIntoConstraints="NO" id="fz3-PX-MZY">
@@ -724,21 +724,22 @@
                     </tableView>
                     <connections>
                         <outlet property="addressLabel" destination="Bkq-NV-dKo" id="G6w-SR-V2M"/>
+                        <outlet property="headerView" destination="Vwl-9u-FDx" id="zFI-6d-dml"/>
                         <outlet property="nameLabel" destination="E32-LJ-1Og" id="RJE-j0-UU7"/>
                         <outlet property="scheduleLabel" destination="OX3-CN-IlU" id="fhA-F3-9dW"/>
-                        <outletCollection property="filterButton" destination="Z0h-Rs-uYr" collectionClass="NSMutableArray" id="BP6-6g-m0f"/>
-                        <outletCollection property="filterButton" destination="vWl-oF-SGJ" collectionClass="NSMutableArray" id="eTS-44-wE4"/>
-                        <outletCollection property="filterButton" destination="AlV-dj-UP8" collectionClass="NSMutableArray" id="cnY-zG-Fvi"/>
-                        <outletCollection property="pointRatingStar" destination="Ec4-0I-YjW" collectionClass="NSMutableArray" id="1aF-FY-34a"/>
-                        <outletCollection property="pointRatingStar" destination="fV3-Ec-qk7" collectionClass="NSMutableArray" id="8bF-c3-tLw"/>
-                        <outletCollection property="pointRatingStar" destination="655-3A-ISg" collectionClass="NSMutableArray" id="PjY-o1-GEb"/>
-                        <outletCollection property="pointRatingStar" destination="gOq-uU-zJ5" collectionClass="NSMutableArray" id="Ku9-FO-pNP"/>
+                        <outletCollection property="filterButtons" destination="Z0h-Rs-uYr" collectionClass="NSMutableArray" id="i04-bG-rZB"/>
                         <outletCollection property="pointRatingStar" destination="cgL-Nn-wr0" collectionClass="NSMutableArray" id="Kg4-N1-ivG"/>
+                        <outletCollection property="pointRatingStar" destination="Ec4-0I-YjW" collectionClass="NSMutableArray" id="1aF-FY-34a"/>
+                        <outletCollection property="filterButtons" destination="vWl-oF-SGJ" collectionClass="NSMutableArray" id="ad0-a1-sMK"/>
+                        <outletCollection property="filterButtons" destination="AlV-dj-UP8" collectionClass="NSMutableArray" id="Wph-X8-aTk"/>
+                        <outletCollection property="pointRatingStar" destination="gOq-uU-zJ5" collectionClass="NSMutableArray" id="Ku9-FO-pNP"/>
+                        <outletCollection property="pointRatingStar" destination="655-3A-ISg" collectionClass="NSMutableArray" id="PjY-o1-GEb"/>
+                        <outletCollection property="pointRatingStar" destination="fV3-Ec-qk7" collectionClass="NSMutableArray" id="8bF-c3-tLw"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EGD-78-H66" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3696" y="-104"/>
+            <point key="canvasLocation" x="3695.652173913044" y="-104.46428571428571"/>
         </scene>
     </scenes>
     <resources>

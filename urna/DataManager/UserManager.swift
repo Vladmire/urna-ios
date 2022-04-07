@@ -10,6 +10,8 @@ import Foundation
 class UserManager {
     
     private(set) var currentUser: User?
+    
+    
     static let shared = UserManager()
     
     private init() {}
@@ -27,3 +29,4 @@ class UserManager {
     func logout() {
         currentUser = nil
     }
+}

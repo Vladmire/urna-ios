@@ -13,7 +13,8 @@ class PointsProvider {
                                 name: "campus A",
                                 type: .none,
                                 location: "Chekhov Street, 22 Taganrog Rostov Oblast Russia 347922",
-                                image: "campusA", schedule: "пн. - пт. 9:30 - 17:00",
+                                image: "campusA",
+                                schedule: "пн. - пт. 9:30 - 17:00",
                                 rating: 4),
                           
                           Point(pointID: 2,

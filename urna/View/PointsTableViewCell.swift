@@ -11,11 +11,7 @@ class PointsTableViewCell: UITableViewCell {
 
 // MARK: - properties
     
-    @IBOutlet var usernameLabel: UILabel! {
-        didSet {
-            usernameLabel.text = user.name
-        }
-    }
+    @IBOutlet var usernameLabel: UILabel!
     
     @IBOutlet var dateLabel: UILabel! {
         didSet {
@@ -29,22 +25,10 @@ class PointsTableViewCell: UITableViewCell {
         }
     }
     
-    @IBOutlet var usernameImage: UIImageView! {
-        didSet {
-            usernameImage.image = UIImage(named: user.image)
-        }
-    }
+    @IBOutlet var usernameImage: UIImageView!
     
-    @IBOutlet var userRatingStar: [UIImageView]! {
-        didSet {
-            var i = 0
-            while i < point.rating {
-                userRatingStar[i].image = UIImage(named: "filledStarVector")
-                i += 1
-            }
-        }
-        
-    }
+    
+    @IBOutlet var userRatingStar: [UIImageView]!
     
 // MARK: - methods
 
