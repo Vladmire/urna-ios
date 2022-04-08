@@ -14,7 +14,7 @@ class AccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //storyboard properties
-        
+         
         username[0].text = currentUser?.name
         username[1].text = currentUser?.name
         //gender.text = currentUser?.gender

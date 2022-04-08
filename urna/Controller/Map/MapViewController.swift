@@ -59,7 +59,6 @@ class MapViewController: UIViewController {
         }
         group.notify(queue: .main) { [weak self] in
             self?.mapView.showAnnotations(annotations, animated: true)
-            self?.mapView.selectAnnotation(annotations[0], animated: true)
         }
     }
     

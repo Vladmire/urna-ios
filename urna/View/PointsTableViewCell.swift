@@ -12,22 +12,9 @@ class PointsTableViewCell: UITableViewCell {
 // MARK: - properties
     
     @IBOutlet var usernameLabel: UILabel!
-    
-    @IBOutlet var dateLabel: UILabel! {
-        didSet {
-            dateLabel.text = "5.04.2022"
-        }
-    }
-    
-    @IBOutlet var reviewtextLabel: UILabel! {
-        didSet {
-            reviewtextLabel.text = "Lorem ipsum aaaaaaaa aaaadds ferffgefrd fefefvfr dferfdwr rfwsdfre fergfwrf"
-        }
-    }
-    
+    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var reviewtextLabel: UILabel!
     @IBOutlet var usernameImage: UIImageView!
-    
-    
     @IBOutlet var userRatingStar: [UIImageView]!
     
 // MARK: - methods

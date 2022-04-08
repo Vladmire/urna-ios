@@ -724,14 +724,14 @@
                     </tableView>
                     <connections>
                         <outlet property="addressLabel" destination="Bkq-NV-dKo" id="G6w-SR-V2M"/>
+                        <outlet property="filterButtons1" destination="Z0h-Rs-uYr" id="iUR-iO-nz0"/>
+                        <outlet property="filterButtons2" destination="vWl-oF-SGJ" id="Kvv-1H-bYS"/>
+                        <outlet property="filterButtons3" destination="AlV-dj-UP8" id="xUf-Qv-DrK"/>
                         <outlet property="headerView" destination="Vwl-9u-FDx" id="zFI-6d-dml"/>
                         <outlet property="nameLabel" destination="E32-LJ-1Og" id="RJE-j0-UU7"/>
                         <outlet property="scheduleLabel" destination="OX3-CN-IlU" id="fhA-F3-9dW"/>
-                        <outletCollection property="filterButtons" destination="Z0h-Rs-uYr" collectionClass="NSMutableArray" id="i04-bG-rZB"/>
                         <outletCollection property="pointRatingStar" destination="cgL-Nn-wr0" collectionClass="NSMutableArray" id="Kg4-N1-ivG"/>
                         <outletCollection property="pointRatingStar" destination="Ec4-0I-YjW" collectionClass="NSMutableArray" id="1aF-FY-34a"/>
-                        <outletCollection property="filterButtons" destination="vWl-oF-SGJ" collectionClass="NSMutableArray" id="ad0-a1-sMK"/>
-                        <outletCollection property="filterButtons" destination="AlV-dj-UP8" collectionClass="NSMutableArray" id="Wph-X8-aTk"/>
                         <outletCollection property="pointRatingStar" destination="gOq-uU-zJ5" collectionClass="NSMutableArray" id="Ku9-FO-pNP"/>
                         <outletCollection property="pointRatingStar" destination="655-3A-ISg" collectionClass="NSMutableArray" id="PjY-o1-GEb"/>
                         <outletCollection property="pointRatingStar" destination="fV3-Ec-qk7" collectionClass="NSMutableArray" id="8bF-c3-tLw"/>
