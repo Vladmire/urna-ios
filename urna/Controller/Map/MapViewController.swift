@@ -83,10 +83,16 @@ extension MapViewController: MKMapViewDelegate {
         guard let point = (view.annotation as? MyAnnotation)?.point else {
             return
         }
-        // create detail from storyboard
-        let detailVC = DetailPointsViewController(currentPoint: point)
+        
+        // create detailPoint from storyboard
+        
+        //let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        //let detailVC = storyboard.instantiateViewController(withIdentifier: "detailPoint")
+        
+        
+        let detailVC = DetailPointsViewController.makeDetailPointVC(currentPoint: point)
         detailVC.modalPresentationStyle = .popover
-        self.present(detailVC, animated: false, completion: nil)
+        show(detailVC, sender: self)
         
     }
 }

@@ -15,6 +15,7 @@
 		690F9E2B27E4A7A400F2DC2E /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690F9E2A27E4A7A400F2DC2E /* NavigationController.swift */; };
 		690FEB3D27FB031D004934FA /* DeleteAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690FEB3C27FB031C004934FA /* DeleteAccountViewController.swift */; };
 		690FEB3F27FB0364004934FA /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690FEB3E27FB0364004934FA /* DeleteAccountView.swift */; };
+		69157FBA2806F11C00DE95E1 /* UITableView+Convienience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69157FB92806F11C00DE95E1 /* UITableView+Convienience.swift */; };
 		691D4D9927E8AFBF000C82C9 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691D4D9827E8AFBF000C82C9 /* FilterViewController.swift */; };
 		6924B7CA27F5C55900AD59FB /* ChangeGenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6924B7C927F5C55900AD59FB /* ChangeGenderViewController.swift */; };
 		6924B7CC27F5C60B00AD59FB /* changeGenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6924B7CB27F5C60B00AD59FB /* changeGenderView.swift */; };
@@ -75,6 +76,7 @@
 		690F9E2A27E4A7A400F2DC2E /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		690FEB3C27FB031C004934FA /* DeleteAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewController.swift; sourceTree = "<group>"; };
 		690FEB3E27FB0364004934FA /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
+		69157FB92806F11C00DE95E1 /* UITableView+Convienience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Convienience.swift"; sourceTree = "<group>"; };
 		691D4D9827E8AFBF000C82C9 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		6924B7C927F5C55900AD59FB /* ChangeGenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeGenderViewController.swift; sourceTree = "<group>"; };
 		6924B7CB27F5C60B00AD59FB /* changeGenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changeGenderView.swift; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 				6924B7D127F5CF2800AD59FB /* NewPasswordView.swift */,
 				690FEB3E27FB0364004934FA /* DeleteAccountView.swift */,
 				692FC5A727FC6C950006A2A1 /* PointsTableViewCell.swift */,
+				69157FB92806F11C00DE95E1 /* UITableView+Convienience.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 				69488CC227FD996300ACD23B /* PointsProvider.swift in Sources */,
 				690FEB3D27FB031D004934FA /* DeleteAccountViewController.swift in Sources */,
 				6924B7D027F5CDD400AD59FB /* NewEmailViewConroller.swift in Sources */,
+				69157FBA2806F11C00DE95E1 /* UITableView+Convienience.swift in Sources */,
 				698EF77C27F324ED006CA2CF /* ViewsFactory.swift in Sources */,
 				6900A1C627E223F6006DAB39 /* Users.swift in Sources */,
 				6930440E27E33E4D00A10B7D /* AuthViewController.swift in Sources */,

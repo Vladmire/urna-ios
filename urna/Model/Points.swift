@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Point {
+struct Point: Hashable {
     
     enum PointType: String {
         case paper

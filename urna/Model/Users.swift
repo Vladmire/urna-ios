@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct User {
+struct User: Hashable {
     
     enum Gender: String {
         case male = "male"
