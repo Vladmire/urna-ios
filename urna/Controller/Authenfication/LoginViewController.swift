@@ -9,13 +9,15 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    // MARK: - Outlets
+    
     @IBAction func login(){
-        
     }
     @IBAction func registration() {
-        
     }
 
+    // MARK: - ViewDidLoad method
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.backButtonTitle = ""

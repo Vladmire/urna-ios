@@ -51,7 +51,6 @@ class AccountViewController: UIViewController {
         switch sender.tag {
         case 1:
             let controller = PopUpWindowViewController { [weak self] text in
-                //self?.user.name = text
                 self?.username[0].text = text
                 self?.username[1].text = text
             }
@@ -60,21 +59,18 @@ class AccountViewController: UIViewController {
         
         case 2:
             let controller = ChangeGenderViewController { [weak self] text in
-                //self?.user.gender = text
                 self?.gender.text = text
             }
             controller.modalPresentationStyle = .overFullScreen
             self.present(controller, animated: false, completion: nil)
         case 3:
             let controller = NewEmailViewConroller { [weak self] text in
-                //self?.user.email = text
                 self?.email.text = text
             }
             controller.modalPresentationStyle = .overFullScreen
             self.present(controller, animated: false, completion: nil)
         case 4:
             let controller = NewPasswordViewController { [weak self] text in
-                //self?.user.password = text
                 self?.password.text = text
             }
             controller.modalPresentationStyle = .overFullScreen

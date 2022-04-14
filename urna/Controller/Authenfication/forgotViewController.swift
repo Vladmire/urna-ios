@@ -9,13 +9,17 @@ import UIKit
 
 class forgotViewController: UIViewController {
     
+    // MARK: - Outlets
+    
     @IBOutlet var emailTextField: RoundedTextField!
 
+    // MARK: - ViewDidLoad method
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.backButtonTitle = ""
-        // Do any additional setup after loading the view.
+        emailTextField.autocorrectionType = .no
     }
     
     // MARK: - Navigation
@@ -25,7 +29,7 @@ class forgotViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    // MARK: - forgot password action
+    // MARK: - Forgot password action
     
     @IBAction func sendButtonTapped(sender: UIButton) {
         //[nameTextField, passwordTextField].forEach({ $0?.text = "123" })

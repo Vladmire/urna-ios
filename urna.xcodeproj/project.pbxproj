@@ -38,6 +38,7 @@
 		69488CBF27FD8C4700ACD23B /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69488CBE27FD8C4700ACD23B /* Filter.swift */; };
 		69488CC227FD996300ACD23B /* PointsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69488CC127FD996300ACD23B /* PointsProvider.swift */; };
 		69488CC427FD9BF000ACD23B /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69488CC327FD9BF000ACD23B /* UserManager.swift */; };
+		694D3E6C28082ED70026436B /* DetailedPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694D3E6B28082ED70026436B /* DetailedPresentationController.swift */; };
 		6964757827EB353100397A0D /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6964757727EB353100397A0D /* AccountViewController.swift */; };
 		698EF77727F314F8006CA2CF /* PopUpWindowAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698EF77627F314F8006CA2CF /* PopUpWindowAccount.swift */; };
 		698EF77C27F324ED006CA2CF /* ViewsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698EF77B27F324ED006CA2CF /* ViewsFactory.swift */; };
@@ -99,6 +100,7 @@
 		69488CBE27FD8C4700ACD23B /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		69488CC127FD996300ACD23B /* PointsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsProvider.swift; sourceTree = "<group>"; };
 		69488CC327FD9BF000ACD23B /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		694D3E6B28082ED70026436B /* DetailedPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedPresentationController.swift; sourceTree = "<group>"; };
 		6964757727EB353100397A0D /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		698EF77627F314F8006CA2CF /* PopUpWindowAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWindowAccount.swift; sourceTree = "<group>"; };
 		698EF77B27F324ED006CA2CF /* ViewsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewsFactory.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				6900A1C327E1E755006DAB39 /* MapViewController.swift */,
 				691D4D9827E8AFBF000C82C9 /* FilterViewController.swift */,
 				692FC5A527FC5D3A0006A2A1 /* DetailPointsViewController.swift */,
+				694D3E6B28082ED70026436B /* DetailedPresentationController.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				6964757827EB353100397A0D /* AccountViewController.swift in Sources */,
 				6924B7CE27F5CCFA00AD59FB /* NewEmailView.swift in Sources */,
 				698EF77727F314F8006CA2CF /* PopUpWindowAccount.swift in Sources */,
+				694D3E6C28082ED70026436B /* DetailedPresentationController.swift in Sources */,
 				693D90BF27E0B40C00CB0AC5 /* Points.swift in Sources */,
 				6924B7CA27F5C55900AD59FB /* ChangeGenderViewController.swift in Sources */,
 				6924B7D227F5CF2800AD59FB /* NewPasswordView.swift in Sources */,

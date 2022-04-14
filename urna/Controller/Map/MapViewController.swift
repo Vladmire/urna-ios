@@ -10,9 +10,13 @@ import MapKit
 
 class MapViewController: UIViewController {
     
+    private let pointsProvider = PointsProvider()
+    
+    // MARK: - Outlets
+    
     @IBOutlet var mapView: MKMapView!
     
-    private let pointsProvider = PointsProvider()
+    // MARK: - ViewdidLoad method
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +34,7 @@ class MapViewController: UIViewController {
         }
     }
     
-    // MARK: - Helpers
+    // MARK: - Show points
     
     private func showDownloadedPoints(_ points: [Point]) {
         var annotations: [MyAnnotation] = []
@@ -61,20 +65,16 @@ class MapViewController: UIViewController {
             self?.mapView.showAnnotations(annotations, animated: true)
         }
     }
-    
-    
-    
+
     // MARK: - Handlers
     
     @IBAction func showFilter(sender: UIButton) {
         performSegue(withIdentifier: "filter", sender: nil)
     }
-    
-    // MARK: - placemarks delegate
-    
-    
-    
+
 }
+
+    // MARK: - Placemark delegate
 
 extension MapViewController: MKMapViewDelegate {
     
@@ -83,16 +83,19 @@ extension MapViewController: MKMapViewDelegate {
         guard let point = (view.annotation as? MyAnnotation)?.point else {
             return
         }
-        
-        // create detailPoint from storyboard
-        
-        //let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        //let detailVC = storyboard.instantiateViewController(withIdentifier: "detailPoint")
-        
-        
         let detailVC = DetailPointsViewController.makeDetailPointVC(currentPoint: point)
-        detailVC.modalPresentationStyle = .popover
-        show(detailVC, sender: self)
-        
+        detailVC.modalPresentationStyle = .custom
+        detailVC.transitioningDelegate = self
+        self.present(detailVC, animated: true, completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
+            self.mapView.deselectAnnotation(view.annotation, animated: true)
+        }
+    }
+}
+
+extension MapViewController: UIViewControllerTransitioningDelegate {
+    
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        DetailedPresentationController(presentedViewController: presented, presenting: presenting)
     }
 }

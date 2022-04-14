@@ -434,7 +434,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ewh-88-ij2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1723" y="52"/>
+            <point key="canvasLocation" x="512" y="52"/>
         </scene>
         <!--Filter View Controller-->
         <scene sceneID="UWh-IO-XJL">
@@ -511,44 +511,52 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="Vwl-9u-FDx">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="266"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="286"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Nm5-na-Ik3">
-                                    <rect key="frame" x="20" y="0.0" width="374" height="266"/>
+                                    <rect key="frame" x="20" y="0.0" width="374" height="286"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E32-LJ-1Og">
-                                            <rect key="frame" x="0.0" y="0.0" width="79.5" height="39"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aCv-oD-X6F">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="17"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" image="scrollLineButton" imagePadding="1"/>
+                                            <connections>
+                                                <action selector="swipeButtonTouched" destination="h6a-BM-ldc" eventType="touchUpInside" id="fpM-e8-hme"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E32-LJ-1Og">
+                                            <rect key="frame" x="0.0" y="27" width="79.5" height="37"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="address" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Bkq-NV-dKo">
-                                            <rect key="frame" x="0.0" y="49" width="52" height="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="address" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Bkq-NV-dKo">
+                                            <rect key="frame" x="0.0" y="74" width="52" height="17"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="xwy-Ip-Zx2">
-                                            <rect key="frame" x="0.0" y="76" width="162" height="30"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="xwy-Ip-Zx2">
+                                            <rect key="frame" x="0.0" y="101" width="162" height="30"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starVector" translatesAutoresizingMaskIntoConstraints="NO" id="Ec4-0I-YjW">
                                                     <rect key="frame" x="0.0" y="0.0" width="22" height="30"/>
                                                     <color key="tintColor" name="deleteColor"/>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starVector" translatesAutoresizingMaskIntoConstraints="NO" id="fV3-Ec-qk7">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starVector" translatesAutoresizingMaskIntoConstraints="NO" id="fV3-Ec-qk7">
                                                     <rect key="frame" x="35" y="0.0" width="22" height="30"/>
                                                     <color key="tintColor" name="deleteColor"/>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starVector" translatesAutoresizingMaskIntoConstraints="NO" id="655-3A-ISg">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starVector" translatesAutoresizingMaskIntoConstraints="NO" id="655-3A-ISg">
                                                     <rect key="frame" x="70" y="0.0" width="22" height="30"/>
                                                     <color key="tintColor" name="deleteColor"/>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starVector" translatesAutoresizingMaskIntoConstraints="NO" id="gOq-uU-zJ5">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starVector" translatesAutoresizingMaskIntoConstraints="NO" id="gOq-uU-zJ5">
                                                     <rect key="frame" x="105" y="0.0" width="22" height="30"/>
                                                     <color key="tintColor" name="deleteColor"/>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starVector" translatesAutoresizingMaskIntoConstraints="NO" id="cgL-Nn-wr0">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starVector" translatesAutoresizingMaskIntoConstraints="NO" id="cgL-Nn-wr0">
                                                     <rect key="frame" x="140" y="0.0" width="22" height="30"/>
                                                     <color key="tintColor" name="deleteColor"/>
                                                 </imageView>
@@ -557,14 +565,14 @@
                                                 <constraint firstAttribute="height" constant="30" id="KF0-gO-1xh"/>
                                             </constraints>
                                         </stackView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="schedule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OX3-CN-IlU">
-                                            <rect key="frame" x="0.0" y="116" width="59" height="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="schedule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OX3-CN-IlU">
+                                            <rect key="frame" x="0.0" y="141" width="59" height="17"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="fb5-ex-iAs">
-                                            <rect key="frame" x="0.0" y="143" width="374" height="96"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="fb5-ex-iAs">
+                                            <rect key="frame" x="0.0" y="168" width="374" height="96"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z0h-Rs-uYr">
                                                     <rect key="frame" x="0.0" y="0.0" width="96" height="96"/>
@@ -598,8 +606,8 @@
                                                 <constraint firstAttribute="height" constant="96" id="htC-6u-7nE"/>
                                             </constraints>
                                         </stackView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Reviews" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ELv-i1-ljO">
-                                            <rect key="frame" x="0.0" y="249" width="53" height="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Reviews" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ELv-i1-ljO">
+                                            <rect key="frame" x="0.0" y="274" width="53" height="12"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -607,6 +615,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="fb5-ex-iAs" firstAttribute="width" secondItem="Nm5-na-Ik3" secondAttribute="width" id="aaq-NF-Sgp"/>
+                                        <constraint firstItem="aCv-oD-X6F" firstAttribute="centerX" secondItem="Nm5-na-Ik3" secondAttribute="centerX" id="iI5-4q-Q7C"/>
                                     </constraints>
                                 </stackView>
                             </subviews>
@@ -620,15 +629,15 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationWidth="10" reuseIdentifier="reviewcell" rowHeight="194" id="QCc-bR-pgI" customClass="PointsTableViewCell" customModule="urna" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="310.5" width="414" height="194"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationWidth="10" reuseIdentifier="reviewcell" rowHeight="200" id="QCc-bR-pgI" customClass="PointsTableViewCell" customModule="urna" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="330.5" width="414" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QCc-bR-pgI" id="6pv-ih-82h">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="194"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="DLb-SB-gfs">
-                                            <rect key="frame" x="20" y="11" width="374" height="172"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nwf-0I-nbO">
+                                            <rect key="frame" x="20" y="11" width="374" height="178"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="oC2-Xd-euz">
                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="46"/>
@@ -660,19 +669,19 @@
                                                                                     <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
                                                                                     <color key="tintColor" name="deleteColor"/>
                                                                                 </imageView>
-                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starVector" translatesAutoresizingMaskIntoConstraints="NO" id="ncO-tX-srx">
+                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starVector" translatesAutoresizingMaskIntoConstraints="NO" id="ncO-tX-srx">
                                                                                     <rect key="frame" x="30" y="0.0" width="22" height="22"/>
                                                                                     <color key="tintColor" name="deleteColor"/>
                                                                                 </imageView>
-                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starVector" translatesAutoresizingMaskIntoConstraints="NO" id="v0F-1W-8NN">
+                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starVector" translatesAutoresizingMaskIntoConstraints="NO" id="v0F-1W-8NN">
                                                                                     <rect key="frame" x="60" y="0.0" width="22" height="22"/>
                                                                                     <color key="tintColor" name="deleteColor"/>
                                                                                 </imageView>
-                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starVector" translatesAutoresizingMaskIntoConstraints="NO" id="WBg-Mk-oJx">
+                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starVector" translatesAutoresizingMaskIntoConstraints="NO" id="WBg-Mk-oJx">
                                                                                     <rect key="frame" x="90" y="0.0" width="22" height="22"/>
                                                                                     <color key="tintColor" name="deleteColor"/>
                                                                                 </imageView>
-                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starVector" translatesAutoresizingMaskIntoConstraints="NO" id="3EA-Cu-rYE">
+                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starVector" translatesAutoresizingMaskIntoConstraints="NO" id="3EA-Cu-rYE">
                                                                                     <rect key="frame" x="120" y="0.0" width="22" height="22"/>
                                                                                     <color key="tintColor" name="deleteColor"/>
                                                                                 </imageView>
@@ -694,7 +703,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="review's text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqp-eF-Few">
-                                                    <rect key="frame" x="0.0" y="71" width="374" height="101"/>
+                                                    <rect key="frame" x="0.0" y="56" width="81.5" height="122"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -703,10 +712,10 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="DLb-SB-gfs" secondAttribute="bottom" id="DtX-cH-0W4"/>
-                                        <constraint firstItem="DLb-SB-gfs" firstAttribute="top" secondItem="6pv-ih-82h" secondAttribute="topMargin" id="ddM-cc-5QA"/>
-                                        <constraint firstItem="DLb-SB-gfs" firstAttribute="leading" secondItem="6pv-ih-82h" secondAttribute="leadingMargin" id="li5-bq-wy6"/>
-                                        <constraint firstItem="DLb-SB-gfs" firstAttribute="trailing" secondItem="6pv-ih-82h" secondAttribute="trailingMargin" id="zYB-Bs-N36"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="nwf-0I-nbO" secondAttribute="bottom" id="5Tg-Uz-qbx"/>
+                                        <constraint firstItem="nwf-0I-nbO" firstAttribute="top" secondItem="6pv-ih-82h" secondAttribute="topMargin" id="Spk-II-Em2"/>
+                                        <constraint firstItem="nwf-0I-nbO" firstAttribute="leading" secondItem="6pv-ih-82h" secondAttribute="leadingMargin" id="f90-ON-Xrs"/>
+                                        <constraint firstItem="nwf-0I-nbO" firstAttribute="trailing" secondItem="6pv-ih-82h" secondAttribute="trailingMargin" id="u9V-cR-PoM"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -714,11 +723,11 @@
                                     <outlet property="reviewtextLabel" destination="nqp-eF-Few" id="p0L-AF-YQV"/>
                                     <outlet property="usernameImage" destination="fz3-PX-MZY" id="Nl9-vJ-VH0"/>
                                     <outlet property="usernameLabel" destination="9Gr-mZ-MHf" id="zaB-Aq-y3h"/>
-                                    <outletCollection property="userRatingStar" destination="v0F-1W-8NN" collectionClass="NSMutableArray" id="XV3-XZ-yST"/>
-                                    <outletCollection property="userRatingStar" destination="ncO-tX-srx" collectionClass="NSMutableArray" id="js6-uc-1Fr"/>
-                                    <outletCollection property="userRatingStar" destination="3EA-Cu-rYE" collectionClass="NSMutableArray" id="Oce-oc-GZD"/>
-                                    <outletCollection property="userRatingStar" destination="WBg-Mk-oJx" collectionClass="NSMutableArray" id="i4B-Ya-fn4"/>
-                                    <outletCollection property="userRatingStar" destination="ECP-Zr-3lb" collectionClass="NSMutableArray" id="vb3-ec-K0m"/>
+                                    <outletCollection property="userRatingStar" destination="v0F-1W-8NN" collectionClass="NSMutableArray" id="H6i-ye-WeX"/>
+                                    <outletCollection property="userRatingStar" destination="ECP-Zr-3lb" collectionClass="NSMutableArray" id="iRr-ee-KA6"/>
+                                    <outletCollection property="userRatingStar" destination="ncO-tX-srx" collectionClass="NSMutableArray" id="nqQ-wP-lwN"/>
+                                    <outletCollection property="userRatingStar" destination="3EA-Cu-rYE" collectionClass="NSMutableArray" id="TfE-Zp-ZIp"/>
+                                    <outletCollection property="userRatingStar" destination="WBg-Mk-oJx" collectionClass="NSMutableArray" id="l4q-Vg-hc1"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -735,16 +744,17 @@
                         <outlet property="headerView" destination="Vwl-9u-FDx" id="zFI-6d-dml"/>
                         <outlet property="nameLabel" destination="E32-LJ-1Og" id="RJE-j0-UU7"/>
                         <outlet property="scheduleLabel" destination="OX3-CN-IlU" id="fhA-F3-9dW"/>
-                        <outletCollection property="pointRatingStar" destination="Ec4-0I-YjW" collectionClass="NSMutableArray" id="6b8-Hx-9yR"/>
-                        <outletCollection property="pointRatingStar" destination="cgL-Nn-wr0" collectionClass="NSMutableArray" id="hn7-1m-iT5"/>
-                        <outletCollection property="pointRatingStar" destination="gOq-uU-zJ5" collectionClass="NSMutableArray" id="eTL-PH-pGo"/>
-                        <outletCollection property="pointRatingStar" destination="fV3-Ec-qk7" collectionClass="NSMutableArray" id="tvz-Yw-AFB"/>
-                        <outletCollection property="pointRatingStar" destination="655-3A-ISg" collectionClass="NSMutableArray" id="VMu-EF-d5A"/>
+                        <outlet property="swipeButton" destination="aCv-oD-X6F" id="uA3-FE-AkQ"/>
+                        <outletCollection property="pointRatingStar" destination="Ec4-0I-YjW" collectionClass="NSMutableArray" id="Gm9-jB-D5k"/>
+                        <outletCollection property="pointRatingStar" destination="fV3-Ec-qk7" collectionClass="NSMutableArray" id="tlr-e6-1Er"/>
+                        <outletCollection property="pointRatingStar" destination="655-3A-ISg" collectionClass="NSMutableArray" id="AHx-i9-AWB"/>
+                        <outletCollection property="pointRatingStar" destination="gOq-uU-zJ5" collectionClass="NSMutableArray" id="Oon-Qm-W9i"/>
+                        <outletCollection property="pointRatingStar" destination="cgL-Nn-wr0" collectionClass="NSMutableArray" id="F64-94-l68"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EGD-78-H66" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3696" y="-149"/>
+            <point key="canvasLocation" x="3695.652173913044" y="-149.33035714285714"/>
         </scene>
     </scenes>
     <resources>
@@ -759,6 +769,7 @@
         <image name="mapIcon" width="29" height="35"/>
         <image name="pencilAcc" width="24" height="24"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="scrollLineButton" width="28" height="3"/>
         <image name="starVector" width="22" height="22"/>
         <image name="whiteWaveAcc" width="1170" height="1779"/>
         <namedColor name="deleteColor">

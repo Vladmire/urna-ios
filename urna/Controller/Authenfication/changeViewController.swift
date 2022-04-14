@@ -9,19 +9,23 @@ import UIKit
 
 class changeViewController: UIViewController {
     
+    // MARK: - Outlets
+    
     @IBOutlet var passwordTextField: RoundedTextField!
     @IBOutlet var newPasswordTextField: RoundedTextField!
-
+    
+    // MARK: - ViewDidLoad method
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.backButtonTitle = ""
-        // Do any additional setup after loading the view.
+        
+        passwordTextField.autocorrectionType = .no
+        newPasswordTextField.autocorrectionType = .no
     }
 
-    
-
-    // MARK: - change password
+    // MARK: - Change password action
 
      @IBAction func changeButtonTapped(sender: UIButton) {
          //[nameTextField, passwordTextField].forEach({ $0?.text = "123" })

@@ -10,6 +10,8 @@ import Foundation
 
 struct Review: Hashable {
     let userID: Int
+    let image: String
+    let name: String
     let pointID: Int
     let rating: Int
     let text: String
