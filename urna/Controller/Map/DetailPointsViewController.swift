@@ -34,7 +34,7 @@ class DetailPointsViewController: UITableViewController {
     }
     
     // MARK: - Outlets
-    @IBOutlet var swipeButton: UIButton!
+    
     @IBOutlet var headerView: UITableViewHeaderFooterView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var addressLabel: UILabel!
@@ -43,11 +43,19 @@ class DetailPointsViewController: UITableViewController {
     @IBOutlet var filterButtons2: UIButton!
     @IBOutlet var filterButtons3: UIButton!
     @IBOutlet var pointRatingStar: [UIImageView]!
-    
-    @IBAction func swipeButtonTouched() {
+    @IBOutlet var writeReviewButton: UIButton!
+    @IBOutlet var closeButton: UIButton!
+    @IBAction func closeButtonTapped() {
         dismiss(animated: true, completion: nil)
     }
+    @IBAction func writeReviewTapped() {
+        let writeReviewlVC = WriteReviewViewController.makeWriteReviewViewController(currentPoint: currentPoint)
+        writeReviewlVC.modalPresentationStyle = .custom
+        writeReviewlVC.transitioningDelegate = self
+        self.present(writeReviewlVC, animated: true, completion: nil)
+    }
     
+
     // MARK: - init a viewcontroller in stryboard
     
     static func makeDetailPointVC(currentPoint: Point) -> DetailPointsViewController {
@@ -90,7 +98,6 @@ class DetailPointsViewController: UITableViewController {
 //        }
         
         //set value for elements
-        swipeButton.setTitle("", for: .normal)
         
         filterButtons1.setTitle(filter[0].title, for: .normal)
         filterButtons1.setImage(UIImage(named: filter[0].image), for: .normal)
@@ -101,6 +108,8 @@ class DetailPointsViewController: UITableViewController {
         filterButtons3.setTitle(filter[2].title, for: .normal)
         filterButtons3.setImage(UIImage(named: filter[2].image), for: .normal)
         
+        writeReviewButton.layer.cornerRadius = 10.0
+        closeButton.setTitle("", for: .normal)
         nameLabel.text = currentPoint.name
         addressLabel.text = currentPoint.location
         scheduleLabel.text = currentPoint.schedule
@@ -148,6 +157,13 @@ class DetailPointsViewController: UITableViewController {
                 return cell
             })
         return dataSource
+    }
+}
+
+extension DetailPointsViewController: UIViewControllerTransitioningDelegate {
+    
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        DetailedPresentationController(presentedViewController: presented, presenting: presenting)
     }
 }
 

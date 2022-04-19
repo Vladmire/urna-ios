@@ -354,7 +354,7 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" image="Line 10" translatesAutoresizingMaskIntoConstraints="NO" id="9GZ-CZ-v9f">
                                                 <rect key="frame" x="0.0" y="0.0" width="128" height="17"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="4" translatesAutoresizingMaskIntoConstraints="NO" id="0ua-nV-C7Y">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="1" translatesAutoresizingMaskIntoConstraints="NO" id="0ua-nV-C7Y">
                                                 <rect key="frame" x="156" y="0.0" width="14.333333333333343" height="17"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -557,10 +557,10 @@
             </objects>
             <point key="canvasLocation" x="2697" y="822"/>
         </scene>
-        <!--View Controller-->
+        <!--Change Finished View Controller-->
         <scene sceneID="ik0-N7-cnr">
             <objects>
-                <viewController id="HhC-Qo-rBZ" sceneMemberID="viewController">
+                <viewController id="HhC-Qo-rBZ" customClass="ChangeFinishedViewController" customModule="urna" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ysv-0z-Kv8">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -596,7 +596,7 @@
                                             <color key="baseBackgroundColor" name="mainMarine"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="kWJ-2D-XjY" kind="showDetail" id="r1r-e9-n9R"/>
+                                            <action selector="greatButtonPressed" destination="HhC-Qo-rBZ" eventType="touchUpInside" id="9Hi-EM-r1m"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -655,7 +655,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="r1r-e9-n9R"/>
+        <segue reference="oLM-da-SqG"/>
         <segue reference="w4T-hO-fY9"/>
     </inferredMetricsTieBreakers>
     <resources>
