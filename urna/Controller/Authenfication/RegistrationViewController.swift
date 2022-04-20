@@ -32,18 +32,21 @@ class RegistrationViewController: UIViewController  {
         
         navigationItem.backButtonTitle = ""
         
-        nameTextField.tag = 1
+        nameTextField.tag = 4
         nameTextField.becomeFirstResponder()
         nameTextField.autocorrectionType = .no
         nameTextField.delegate = self
         
-        emailTextField.tag = 2
+        emailTextField.tag = 5
         emailTextField.autocorrectionType = .no
         emailTextField.delegate = self
         
-        passwordTextField.tag = 3
+        passwordTextField.tag = 6
         passwordTextField.autocorrectionType = .no
-        passwordTextField.delegate = self
+        
+        // move view to the top when keyboard appear
+        //NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        //NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         // Hide the keyboard
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
@@ -78,6 +81,21 @@ class RegistrationViewController: UIViewController  {
             view.window?.windowScene?.windows.first?.rootViewController = tabBarController
         }
     }
+    // func for work with keyboard
+//    @objc func keyboardWillShow(notification: NSNotification) {
+//        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+//            if self.view.frame.origin.y == 0 {
+//                self.view.frame.origin.y -= keyboardSize.height
+//                NSLayoutConstraint().constant = keyboardSize.height
+//            }
+//        }
+//    }
+//
+//    @objc func keyboardWillHide(notification: NSNotification) {
+//        if self.view.frame.origin.y != 0 {
+//            self.view.frame.origin.y = 0
+//        }
+//    }
 }
 
 extension RegistrationViewController: UITextFieldDelegate {

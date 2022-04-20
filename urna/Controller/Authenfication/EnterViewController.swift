@@ -50,14 +50,18 @@ class EnterViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.backButtonTitle = ""
-        nameTextField.tag = 1
+        nameTextField.tag = 4
         nameTextField.becomeFirstResponder()
         nameTextField.autocorrectionType = .no
         nameTextField.delegate = self
         
-        passwordTextField.tag = 2
+        passwordTextField.tag = 5
         passwordTextField.autocorrectionType = .no
         passwordTextField.delegate = self
+        
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
     
     // MARK: - Open with safari function

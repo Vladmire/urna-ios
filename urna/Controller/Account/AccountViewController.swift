@@ -15,13 +15,13 @@ class AccountViewController: UIViewController {
         super.viewDidLoad()
         //storyboard properties
          
-        username[0].text = currentUser.name
-        username[1].text = currentUser.name
+        username[0].text = currentUser?.name ?? ""
+        username[1].text = currentUser?.name ?? ""
         //gender.text = currentUser?.gender
-        email.text = currentUser.email
-        password.text = currentUser.password
-        
-        userAvatar.image  = UIImage(named: currentUser.image)
+        email.text = currentUser?.email ?? ""
+        password.text = currentUser?.password
+         
+        userAvatar.image  = UIImage(named: currentUser?.image ?? "")
         userAvatar.layer.cornerRadius = 75.0
         userAvatar.layer.borderWidth = 4
         userAvatar.layer.borderColor = UIColor.white.cgColor

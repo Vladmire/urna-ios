@@ -52,7 +52,9 @@
                             <constraint firstItem="0vf-DV-Mzx" firstAttribute="trailing" secondItem="wn2-Dx-edp" secondAttribute="trailing" constant="20" id="mFD-RB-rlp"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="mapIcon" id="tDV-0V-jJU" userLabel="mapIcon"/>
+                    <tabBarItem key="tabBarItem" title="" image="mapIcon" id="tDV-0V-jJU" userLabel="mapIcon">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-10"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="mapView" destination="uGz-a0-aOp" id="0eh-tG-Ebw"/>
                         <segue destination="rf1-IP-N4f" kind="presentation" identifier="filter" id="of6-Lz-Raz"/>
@@ -60,13 +62,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cma-L7-LZL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2697" y="52"/>
+            <point key="canvasLocation" x="2806" y="46"/>
         </scene>
         <!--Account-->
         <scene sceneID="YE5-tp-7qs">
             <objects>
                 <navigationController title="Account" id="YgH-KP-ejP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="accIcon" selectedImage="accIcon" id="jhz-nO-J9d" userLabel="AccIcon"/>
+                    <tabBarItem key="tabBarItem" title="" image="accIcon" selectedImage="accIcon" id="jhz-nO-J9d" userLabel="AccIcon">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-10"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aMe-Fk-IHA">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -415,7 +419,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dcC-u4-MNT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3695.652173913044" y="1303.7946428571429"/>
+            <point key="canvasLocation" x="3738" y="1304"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="s6n-1k-zUg">
@@ -434,7 +438,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ewh-88-ij2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="512" y="52"/>
+            <point key="canvasLocation" x="1572" y="52"/>
         </scene>
         <!--Filter View Controller-->
         <scene sceneID="UWh-IO-XJL">
@@ -500,7 +504,111 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sAN-sr-z4y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3697" y="537"/>
+            <point key="canvasLocation" x="3738" y="374"/>
+        </scene>
+        <!--Small Detail View Controller-->
+        <scene sceneID="OHL-1F-F0M">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rb3-Qg-E3c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="smallDetailPoint" id="qDl-s5-EfS" customClass="SmallDetailViewController" customModule="urna" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ykS-y6-E33">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="giC-mi-4Bu">
+                                <rect key="frame" x="369" y="44" width="45" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="closeButton"/>
+                                <connections>
+                                    <action selector="closeButtonTapped" destination="qDl-s5-EfS" eventType="touchUpInside" id="gsb-HL-Pz6"/>
+                                    <action selector="closeButtonTapped" destination="h6a-BM-ldc" eventType="touchUpInside" id="pN4-l0-Kbb"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="D6O-pr-2Yk">
+                                <rect key="frame" x="20" y="74" width="329" height="134"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="epc-s8-b9i">
+                                        <rect key="frame" x="0.0" y="0.0" width="79.5" height="37"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="address" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="mOe-Jj-6tf">
+                                        <rect key="frame" x="0.0" y="48" width="52" height="17"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="LK9-oC-C4N">
+                                        <rect key="frame" x="0.0" y="76" width="162" height="30"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starVector" translatesAutoresizingMaskIntoConstraints="NO" id="VGN-S4-z8y">
+                                                <rect key="frame" x="0.0" y="0.0" width="22" height="30"/>
+                                                <color key="tintColor" name="deleteColor"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starVector" translatesAutoresizingMaskIntoConstraints="NO" id="fQP-Pm-No2">
+                                                <rect key="frame" x="35" y="0.0" width="22" height="30"/>
+                                                <color key="tintColor" name="deleteColor"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starVector" translatesAutoresizingMaskIntoConstraints="NO" id="mow-cq-ujV">
+                                                <rect key="frame" x="70" y="0.0" width="22" height="30"/>
+                                                <color key="tintColor" name="deleteColor"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starVector" translatesAutoresizingMaskIntoConstraints="NO" id="3bH-13-8ye">
+                                                <rect key="frame" x="105" y="0.0" width="22" height="30"/>
+                                                <color key="tintColor" name="deleteColor"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starVector" translatesAutoresizingMaskIntoConstraints="NO" id="gMY-qx-7iZ">
+                                                <rect key="frame" x="140" y="0.0" width="22" height="30"/>
+                                                <color key="tintColor" name="deleteColor"/>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="kU8-p0-VD7"/>
+                                        </constraints>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="schedule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQi-aO-TNA">
+                                        <rect key="frame" x="0.0" y="117" width="59" height="17"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4wF-c2-UzM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="D6O-pr-2Yk" firstAttribute="leading" secondItem="4wF-c2-UzM" secondAttribute="leading" constant="20" id="1uS-1O-IAS"/>
+                            <constraint firstItem="D6O-pr-2Yk" firstAttribute="top" secondItem="giC-mi-4Bu" secondAttribute="bottom" constant="-5" id="Pkv-w4-els"/>
+                            <constraint firstItem="4wF-c2-UzM" firstAttribute="trailing" secondItem="giC-mi-4Bu" secondAttribute="trailing" id="fMM-2v-B7w"/>
+                            <constraint firstItem="giC-mi-4Bu" firstAttribute="leading" secondItem="D6O-pr-2Yk" secondAttribute="trailing" constant="20" id="let-Qd-4zE"/>
+                            <constraint firstItem="giC-mi-4Bu" firstAttribute="top" secondItem="4wF-c2-UzM" secondAttribute="top" id="sTL-G1-uoT"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="PMj-MR-OET" appends="YES" id="p4P-tg-WIs"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="addressLabel" destination="mOe-Jj-6tf" id="6Ch-Ur-DHr"/>
+                        <outlet property="closeButton" destination="giC-mi-4Bu" id="mdt-6e-aYw"/>
+                        <outlet property="nameLabel" destination="epc-s8-b9i" id="8hK-gZ-EE7"/>
+                        <outlet property="scheduleLabel" destination="zQi-aO-TNA" id="wPe-sr-Mzd"/>
+                        <outletCollection property="pointRatingStar" destination="VGN-S4-z8y" collectionClass="NSMutableArray" id="kcL-xA-7jl"/>
+                        <outletCollection property="pointRatingStar" destination="fQP-Pm-No2" collectionClass="NSMutableArray" id="OAL-nD-Dhp"/>
+                        <outletCollection property="pointRatingStar" destination="mow-cq-ujV" collectionClass="NSMutableArray" id="LQM-yz-71e"/>
+                        <outletCollection property="pointRatingStar" destination="3bH-13-8ye" collectionClass="NSMutableArray" id="xHk-PE-w23"/>
+                        <outletCollection property="pointRatingStar" destination="gMY-qx-7iZ" collectionClass="NSMutableArray" id="EbW-lL-87q"/>
+                    </connections>
+                </viewController>
+                <tapGestureRecognizer id="PMj-MR-OET">
+                    <connections>
+                        <action selector="showdetailPointViewControllerWithSender:" destination="qDl-s5-EfS" id="EPC-vP-Ncn"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="3617" y="-295"/>
         </scene>
         <!--Detail Points View Controller-->
         <scene sceneID="7AM-N3-oO1">
@@ -781,7 +889,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EGD-78-H66" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3695.652173913044" y="-149.33035714285714"/>
+            <point key="canvasLocation" x="4377" y="-295"/>
         </scene>
         <!--Write Review View Controller-->
         <scene sceneID="4Qf-6H-sxb">
@@ -917,19 +1025,22 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="9E7-71-VUa">
-                                        <rect key="frame" x="0.0" y="358.5" width="414" height="53.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="64" id="9E7-71-VUa">
+                                        <rect key="frame" x="0.0" y="358.5" width="414" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9E7-71-VUa" id="OJ3-wZ-HrQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="53.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9X-PX-hn6">
-                                                    <rect key="frame" x="251" y="11" width="143" height="31.5"/>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9X-PX-hn6">
+                                                    <rect key="frame" x="235" y="11" width="159" height="42"/>
                                                     <color key="backgroundColor" name="ultraLightGrey"/>
                                                     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Send"/>
+                                                    <connections>
+                                                        <action selector="sentButtonTapped" destination="WMT-cZ-ZSw" eventType="touchUpInside" id="NCj-Lq-y2L"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -960,7 +1071,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xdn-S4-KBO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4533.3333333333339" y="-149.33035714285714"/>
+            <point key="canvasLocation" x="5249" y="-295"/>
         </scene>
     </scenes>
     <resources>

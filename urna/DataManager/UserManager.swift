@@ -9,7 +9,7 @@ import Foundation
 
 class UserManager {
     
-    private(set) var currentUser: User = User(userID: 1 ,login: "admin", password: "admin", email: "dubo@sfedu.ru", image: "user photo", name: "Gosha", gender: .male)
+    private(set) var currentUser: User? = User(userID: 1 ,login: "admin", password: "admin", email: "dubo@sfedu.ru", image: "userPhoto", name: "Gosha", gender: .male)
     private let defaultUser = User(userID: 0, login: "noName", password: "123456", email: "noEmail", image: "accIcon", name: "noName", gender: .hidden)
     
     private let users = [User(userID: 1, login: "alena", password: "12345", email: "aaaaa", image: "user photo", name: "Alena", gender: .female),

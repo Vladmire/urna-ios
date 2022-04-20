@@ -20,9 +20,16 @@ class changeViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.backButtonTitle = ""
-        
+        passwordTextField.tag = 1
+        passwordTextField.becomeFirstResponder()
+        passwordTextField.delegate = self
         passwordTextField.autocorrectionType = .no
+        newPasswordTextField.tag = 2
         newPasswordTextField.autocorrectionType = .no
+        
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
 
     // MARK: - Change password action
@@ -48,4 +55,14 @@ class changeViewController: UIViewController {
          }
      }
 
+}
+
+extension changeViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextTextField = view.viewWithTag(textField.tag + 1) {
+            textField.resignFirstResponder()
+            nextTextField.becomeFirstResponder()
+        }
+        return true
+    }
 }

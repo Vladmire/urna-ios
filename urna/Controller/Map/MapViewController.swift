@@ -83,10 +83,10 @@ extension MapViewController: MKMapViewDelegate {
         guard let point = (view.annotation as? MyAnnotation)?.point else {
             return
         }
-        let detailVC = DetailPointsViewController.makeDetailPointVC(currentPoint: point)
-        detailVC.modalPresentationStyle = .custom
-        detailVC.transitioningDelegate = self
-        self.present(detailVC, animated: true, completion: nil)
+        let smallDetaillVC = SmallDetailViewController.makeSmallDetailPointVC(currentPoint: point)
+        smallDetaillVC.modalPresentationStyle = .custom
+        smallDetaillVC.transitioningDelegate = self
+        self.present(smallDetaillVC, animated: true, completion: nil)
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
             self.mapView.deselectAnnotation(view.annotation, animated: true)
         }
@@ -96,6 +96,6 @@ extension MapViewController: MKMapViewDelegate {
 extension MapViewController: UIViewControllerTransitioningDelegate {
     
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        DetailedPresentationController(presentedViewController: presented, presenting: presenting)
+        SmallDetailedPresentationController(presentedViewController: presented, presenting: presenting)
     }
 }

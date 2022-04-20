@@ -1,20 +1,19 @@
 //
-//  DetailedPresentationController.swift
+//  SmallDetailedPresentationController.swift
 //  urna
 //
-//  Created by imac44 on 14.04.2022.
+//  Created by imac44 on 20.04.2022.
 //
 
 import UIKit
 
-class DetailedPresentationController: UIPresentationController {
-    
-    private let blurEffectView: UIVisualEffectView!
+class SmallDetailedPresentationController: UIPresentationController {
+    private let blurEffectView: UIView!
     //var heightOfFrame: CGFloat
     
     override init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController?) {
         
-        let blurEffect = UIBlurEffect(style: .dark)
+        let blurEffect = UIBlurEffect(style: .extraLight)
         blurEffectView = UIVisualEffectView(effect: blurEffect)
         super.init(presentedViewController: presentedViewController, presenting: presentingViewController)
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissController))
@@ -25,25 +24,23 @@ class DetailedPresentationController: UIPresentationController {
         self.blurEffectView.addGestureRecognizer(tapGestureRecognizer)
         self.blurEffectView.addGestureRecognizer(swipeGestureRecognizer)
     }
-    override var shouldRemovePresentersView: Bool {
-        return true
-    }
+    
     override var frameOfPresentedViewInContainerView: CGRect {
-        CGRect(origin: CGPoint(x: 0, y: self.containerView!.frame.height * 0.2),
+        CGRect(origin: CGPoint(x: 0, y: self.containerView!.frame.height * 0.7),
                size: CGSize(width: self.containerView!.frame.width,
-                            height: self.containerView!.frame.height * 0.8))
+                            height: self.containerView!.frame.height * 0.3))
     }
     
     override func presentationTransitionWillBegin() {
         self.blurEffectView.alpha = 0
         self.containerView?.addSubview(blurEffectView)
         self.presentedViewController.transitionCoordinator?.animate(alongsideTransition: { (UIViewControllerTransitionCoordinatorContext) in
-            self.blurEffectView.alpha = 0.7
+            self.blurEffectView.alpha = 0.1
         }, completion: { (UIViewControllerTransitionCoordinatorContext) in })
     }
     
     override func dismissalTransitionWillBegin() {
-        self.blurEffectView.alpha = 0.7
+        self.blurEffectView.alpha = 0.1
         self.presentedViewController.transitionCoordinator?.animate(alongsideTransition: { [weak self] (UIViewControllerTransitionCoordinatorContext) in
             self?.blurEffectView.alpha = 0.0
         }, completion: { [weak self] (UIViewControllerTransitionCoordinatorContext) in

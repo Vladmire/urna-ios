@@ -7,7 +7,14 @@
 
 import Foundation
 
+protocol ReviewsProviderDelegate: AnyObject {
+    func receivedNewReview(_ review: Review)
+}
+
 class ReviewsProvider {
+    
+    static let shared = ReviewsProvider()
+    weak var delegate: ReviewsProviderDelegate?
     
     // MARK: - review's array
     
@@ -53,7 +60,8 @@ class ReviewsProvider {
     }
     // MARK: - send reviews
     func sendReview(newReview: Review) {
-        
+        reviews.append(newReview)
+        delegate?.receivedNewReview(newReview)
     }
     
 }

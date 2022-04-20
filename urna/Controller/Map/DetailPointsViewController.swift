@@ -18,7 +18,7 @@ class DetailPointsViewController: UITableViewController {
     
     // MARK: - Get data
     
-    private let reviewsProvider = ReviewsProvider()
+    private let reviewsProvider = ReviewsProvider.shared
     private var currentReviews: [Review] = []
     private var currentPoint: Point!
     private var userReviews: User!
@@ -50,9 +50,14 @@ class DetailPointsViewController: UITableViewController {
     }
     @IBAction func writeReviewTapped() {
         let writeReviewlVC = WriteReviewViewController.makeWriteReviewViewController(currentPoint: currentPoint)
+        writeReviewlVC.completion = { [weak self] newReview in
+            self?.reviewsProvider.sendReview(newReview: newReview)
+            self?.receivedNewReview(newReview)
+        }
         writeReviewlVC.modalPresentationStyle = .custom
         writeReviewlVC.transitioningDelegate = self
         self.present(writeReviewlVC, animated: true, completion: nil)
+        
     }
     
 
@@ -81,22 +86,7 @@ class DetailPointsViewController: UITableViewController {
         super.viewDidLoad()
     
         //get reviews for current point
-        reviewsProvider.getReviews(currentPoint: currentPoint.pointID) { [weak self] reviews, error in
-            // TODO: hide loading indicator
-            if let err = error {
-                //TODO: show error
-                print(err)
-            } else {
-                self?.currentReviews = reviews ?? []
-            }
-        }
-//        get users who write the reviews
-//        for review in currentReviews {
-//            var reviewAuthors: [User] = []
-//            reviewAuthors.append(UserManager.shared.getReviewAuthor(userID: review.userID))
-//            print(reviewAuthors)
-//        }
-        
+        reloadReviews()
         //set value for elements
         
         filterButtons1.setTitle(filter[0].title, for: .normal)
@@ -108,7 +98,7 @@ class DetailPointsViewController: UITableViewController {
         filterButtons3.setTitle(filter[2].title, for: .normal)
         filterButtons3.setImage(UIImage(named: filter[2].image), for: .normal)
         
-        writeReviewButton.layer.cornerRadius = 10.0
+        writeReviewButton.layer.cornerRadius = 20.0
         closeButton.setTitle("", for: .normal)
         nameLabel.text = currentPoint.name
         addressLabel.text = currentPoint.location
@@ -119,9 +109,18 @@ class DetailPointsViewController: UITableViewController {
             pointRatingStar[i].image = UIImage(named: "filledStarVector")
             i += 1
         }
-
-        
-        
+    }
+    
+    private func reloadReviews() {
+        reviewsProvider.getReviews(currentPoint: currentPoint.pointID) { [weak self] reviews, error in
+            // TODO: hide loading indicator
+            if let err = error {
+                //TODO: show error
+                print(err)
+            } else {
+                self?.currentReviews = reviews ?? []
+            }
+        }
         tableView.dataSource = dataSource
         tableView.separatorStyle = .none
         var snapshot = NSDiffableDataSourceSnapshot<Section, Review>()
@@ -146,7 +145,7 @@ class DetailPointsViewController: UITableViewController {
                 cell.usernameImage.image = UIImage(named: review.image)
                 
                 let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "DD/MM/YY"
+                dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
                 
                 cell.dateLabel.text = dateFormatter.string(from: review.date)
                 var i = 0
@@ -168,3 +167,11 @@ extension DetailPointsViewController: UIViewControllerTransitioningDelegate {
 }
 
 
+extension DetailPointsViewController: ReviewsProviderDelegate {
+    
+    func receivedNewReview(_ review: Review) {
+        reloadReviews()
+        tableView.reloadData()
+    }
+
+}

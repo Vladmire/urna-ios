@@ -20,6 +20,10 @@ class forgotViewController: UIViewController {
         
         navigationItem.backButtonTitle = ""
         emailTextField.autocorrectionType = .no
+        
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
     
     // MARK: - Navigation
