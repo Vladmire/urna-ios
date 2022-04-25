@@ -13,6 +13,7 @@
 		69020AE128102F360082B125 /* SmallDetailedPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69020AE028102F360082B125 /* SmallDetailedPresentationController.swift */; };
 		6903F08027FEC12700DF2F63 /* ReviewsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6903F07F27FEC12700DF2F63 /* ReviewsProvider.swift */; };
 		6903F08227FECA5800DF2F63 /* PlaceMarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6903F08127FECA5800DF2F63 /* PlaceMarks.swift */; };
+		6906BB422812EF6600BD5271 /* KeyboardHandlerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6906BB412812EF6600BD5271 /* KeyboardHandlerProtocol.swift */; };
 		690CCB1627F47A3200CF0A36 /* PopUpWindowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690CCB1527F47A3200CF0A36 /* PopUpWindowViewController.swift */; };
 		690F9E2B27E4A7A400F2DC2E /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690F9E2A27E4A7A400F2DC2E /* NavigationController.swift */; };
 		690FEB3D27FB031D004934FA /* DeleteAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690FEB3C27FB031C004934FA /* DeleteAccountViewController.swift */; };
@@ -37,12 +38,14 @@
 		693D90C227E0B5DF00CB0AC5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 693D90C127E0B5DF00CB0AC5 /* MapKit.framework */; };
 		693D90C627E0C9F400CB0AC5 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693D90C527E0C9F400CB0AC5 /* RegistrationViewController.swift */; };
 		693D90C827E0CF0D00CB0AC5 /* EnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693D90C727E0CF0C00CB0AC5 /* EnterViewController.swift */; };
+		693FDA7628115B4E00FF18CA /* UIButton+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693FDA7528115B4E00FF18CA /* UIButton+Convenience.swift */; };
 		69488CB827FD828C00ACD23B /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69488CB727FD828C00ACD23B /* Reviews.swift */; };
 		69488CBF27FD8C4700ACD23B /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69488CBE27FD8C4700ACD23B /* Filter.swift */; };
 		69488CC227FD996300ACD23B /* PointsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69488CC127FD996300ACD23B /* PointsProvider.swift */; };
 		69488CC427FD9BF000ACD23B /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69488CC327FD9BF000ACD23B /* UserManager.swift */; };
 		694D3E6C28082ED70026436B /* DetailedPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694D3E6B28082ED70026436B /* DetailedPresentationController.swift */; };
 		6964757827EB353100397A0D /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6964757727EB353100397A0D /* AccountViewController.swift */; };
+		698008322816CB7000212497 /* UINavigationBar+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698008312816CB7000212497 /* UINavigationBar+Convenience.swift */; };
 		698EF77727F314F8006CA2CF /* PopUpWindowAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698EF77627F314F8006CA2CF /* PopUpWindowAccount.swift */; };
 		698EF77C27F324ED006CA2CF /* ViewsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698EF77B27F324ED006CA2CF /* ViewsFactory.swift */; };
 		6994618227DF6E6B0083D91B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6994618127DF6E6B0083D91B /* AppDelegate.swift */; };
@@ -78,6 +81,7 @@
 		69020AE028102F360082B125 /* SmallDetailedPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallDetailedPresentationController.swift; sourceTree = "<group>"; };
 		6903F07F27FEC12700DF2F63 /* ReviewsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsProvider.swift; sourceTree = "<group>"; };
 		6903F08127FECA5800DF2F63 /* PlaceMarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMarks.swift; sourceTree = "<group>"; };
+		6906BB412812EF6600BD5271 /* KeyboardHandlerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandlerProtocol.swift; sourceTree = "<group>"; };
 		690CCB1527F47A3200CF0A36 /* PopUpWindowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWindowViewController.swift; sourceTree = "<group>"; };
 		690F9E2A27E4A7A400F2DC2E /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		690FEB3C27FB031C004934FA /* DeleteAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewController.swift; sourceTree = "<group>"; };
@@ -102,12 +106,14 @@
 		693D90C127E0B5DF00CB0AC5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		693D90C527E0C9F400CB0AC5 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		693D90C727E0CF0C00CB0AC5 /* EnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterViewController.swift; sourceTree = "<group>"; };
+		693FDA7528115B4E00FF18CA /* UIButton+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Convenience.swift"; sourceTree = "<group>"; };
 		69488CB727FD828C00ACD23B /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
 		69488CBE27FD8C4700ACD23B /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		69488CC127FD996300ACD23B /* PointsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsProvider.swift; sourceTree = "<group>"; };
 		69488CC327FD9BF000ACD23B /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		694D3E6B28082ED70026436B /* DetailedPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedPresentationController.swift; sourceTree = "<group>"; };
 		6964757727EB353100397A0D /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		698008312816CB7000212497 /* UINavigationBar+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Convenience.swift"; sourceTree = "<group>"; };
 		698EF77627F314F8006CA2CF /* PopUpWindowAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWindowAccount.swift; sourceTree = "<group>"; };
 		698EF77B27F324ED006CA2CF /* ViewsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewsFactory.swift; sourceTree = "<group>"; };
 		6994617E27DF6E6B0083D91B /* urna.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = urna.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -243,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				698EF77B27F324ED006CA2CF /* ViewsFactory.swift */,
+				6906BB412812EF6600BD5271 /* KeyboardHandlerProtocol.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -313,7 +320,9 @@
 				6924B7D127F5CF2800AD59FB /* NewPasswordView.swift */,
 				690FEB3E27FB0364004934FA /* DeleteAccountView.swift */,
 				692FC5A727FC6C950006A2A1 /* PointsTableViewCell.swift */,
+				698008312816CB7000212497 /* UINavigationBar+Convenience.swift */,
 				69157FB92806F11C00DE95E1 /* UITableView+Convienience.swift */,
+				693FDA7528115B4E00FF18CA /* UIButton+Convenience.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -518,11 +527,14 @@
 				6924B7CA27F5C55900AD59FB /* ChangeGenderViewController.swift in Sources */,
 				6924B7D227F5CF2800AD59FB /* NewPasswordView.swift in Sources */,
 				692FC5A627FC5D3A0006A2A1 /* DetailPointsViewController.swift in Sources */,
+				6906BB422812EF6600BD5271 /* KeyboardHandlerProtocol.swift in Sources */,
 				69488CB827FD828C00ACD23B /* Reviews.swift in Sources */,
 				69243DC0280E9455001B1E91 /* ChangeFinishedViewController.swift in Sources */,
 				690FEB3F27FB0364004934FA /* DeleteAccountView.swift in Sources */,
 				6994618427DF6E6B0083D91B /* SceneDelegate.swift in Sources */,
 				6900A1C427E1E755006DAB39 /* MapViewController.swift in Sources */,
+				693FDA7628115B4E00FF18CA /* UIButton+Convenience.swift in Sources */,
+				698008322816CB7000212497 /* UINavigationBar+Convenience.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

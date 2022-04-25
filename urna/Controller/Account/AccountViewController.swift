@@ -9,12 +9,15 @@ import UIKit
 
 class AccountViewController: UIViewController {
     
-   let currentUser = UserManager.shared.currentUser
+   private var currentUser = UserManager.shared.currentUser
+    
+    // MARK: - ViewDidLoad method
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //storyboard properties
-         
+        
         username[0].text = currentUser?.name ?? ""
         username[1].text = currentUser?.name ?? ""
         //gender.text = currentUser?.gender
@@ -35,7 +38,7 @@ class AccountViewController: UIViewController {
         }
     }
     
-    //MARK: - selectors
+    //MARK: - Outlets
     
     @IBOutlet var username: [UILabel]!
     @IBOutlet var gender: UILabel!
@@ -58,8 +61,16 @@ class AccountViewController: UIViewController {
             self.present(controller, animated: false, completion: nil)
         
         case 2:
-            let controller = ChangeGenderViewController { [weak self] text in
-                self?.gender.text = text
+            guard let currentGender = currentUser?.gender else {
+                return
+            }
+            let controller = ChangeGenderViewController(currentGender: currentGender) { [weak self] gender in
+                if gender == .male {
+                    self?.gender.text = "Male"
+                } else {
+                    self?.gender.text = "Female"
+                }
+                self?.currentUser?.gender = gender
             }
             controller.modalPresentationStyle = .overFullScreen
             self.present(controller, animated: false, completion: nil)
@@ -94,6 +105,7 @@ class AccountViewController: UIViewController {
         }
         controller.modalPresentationStyle = .overFullScreen
         self.present(controller, animated: false, completion: nil)
+        UserManager.shared.logout()
         
         
     }
@@ -128,6 +140,8 @@ class AccountViewController: UIViewController {
         present(photoSourceRequestController, animated: true, completion: nil)
     }
 }
+
+    // MARK: - image picker
 
     extension AccountViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

@@ -8,6 +8,10 @@
 import UIKit
 
 class ChangeGenderViewController: UIViewController {
+    
+    private var currentGender: User.Gender
+    
+    private var isSelected: Bool = false
 
     //MARK: - properties
     
@@ -25,10 +29,10 @@ class ChangeGenderViewController: UIViewController {
         return view
     }()
     
+    let completion: (User.Gender) -> Void
     
-    let completion: (String) -> Void
-    
-    init(completion: @escaping (String) -> Void) {
+    init(currentGender: User.Gender, completion: @escaping (User.Gender) -> Void) {
+        self.currentGender = currentGender
         self.completion = completion
         super.init(nibName: nil, bundle: nil)
     }
@@ -36,9 +40,9 @@ class ChangeGenderViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    //var changeNameView: UIView!
 
+    // MARK: - ViewDidLoad method
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,11 +53,21 @@ class ChangeGenderViewController: UIViewController {
         visualEffectView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         
         visualEffectView.alpha = 0
-        
+        changeGender.radioButton_1.addTarget(self, action: #selector(radioButtonTapped), for: .touchUpInside)
+        changeGender.radioButton_2.addTarget(self, action: #selector(radioButtonTapped), for: .touchUpInside)
         changeGender.saveButton.addTarget(self, action: #selector(saveButtonPressed), for: .touchUpInside)
         changeGender.cancelButton.addTarget(self, action: #selector(cancelButtonPressed), for: .touchUpInside)
         
+        if currentGender == .female {
+            radioButtonTapped()
+        } else {
+            isSelected = true
+            radioButtonTapped()
+        }
+        
     }
+    
+    // MARK: - ViewDidAppear method
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -75,17 +89,25 @@ class ChangeGenderViewController: UIViewController {
         
     }
     
-    @objc private func saveButtonPressed() {
-        if changeGender.textField.text != "" {
-            dismiss(animated: false)
-            completion(changeGender.textField.text ?? "")
+    
+    @objc private func radioButtonTapped() {
+        
+        if isSelected {
+            changeGender.radioButton_1.setImage(UIImage(named: "radioButtonOn"), for: .normal)
+            changeGender.radioButton_2.setImage(UIImage(named: "radioButtonOff"), for: .normal)
+            isSelected = false
+            currentGender = .male
         } else {
-            let alertController = UIAlertController(title: "Oops", message: "The textfield is blank", preferredStyle: .alert)
-            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alertController.addAction(alertAction)
-            
-            present(alertController, animated: true, completion: nil)
+            changeGender.radioButton_1.setImage(UIImage(named: "radioButtonOff"), for: .normal)
+            changeGender.radioButton_2.setImage(UIImage(named: "radioButtonOn"), for: .normal)
+            isSelected = true
+            currentGender = .female
         }
+    }
+    
+    @objc private func saveButtonPressed() {
+            dismiss(animated: false)
+            completion(currentGender)
     }
     
     @objc private func cancelButtonPressed() {

@@ -13,6 +13,7 @@ class EnterViewController: UIViewController {
     
     // MARK: - Outlets
     
+    @IBOutlet private var scrollView: UIScrollView!
     @IBOutlet var socialButtons: [UIButton]!
     @IBOutlet var nameTextField: RoundedTextField!
     @IBOutlet var passwordTextField: RoundedTextField!
@@ -59,11 +60,33 @@ class EnterViewController: UIViewController {
         passwordTextField.autocorrectionType = .no
         passwordTextField.delegate = self
         
+        // move view to the top when keyboard appear
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
+        
+        // Hide the keyboard
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
-    
+    @objc func keyboardWillShow(notification:NSNotification) {
+
+        guard let userInfo = notification.userInfo else { return }
+        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+
+        var contentInset:UIEdgeInsets = self.scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height
+        scrollView.contentInset = contentInset
+        scrollView.scrollIndicatorInsets = contentInset
+    }
+
+    @objc func keyboardWillHide(notification:NSNotification) {
+
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInset
+        scrollView.scrollIndicatorInsets = contentInset
+    }
     // MARK: - Open with safari function
     func openWithSafariViewController(socialLink: String?) {
         guard let socialLink = socialLink else {
@@ -76,11 +99,15 @@ class EnterViewController: UIViewController {
     }
 }
 
+    // MARK: - NextTextField action
+
 extension EnterViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let nextTextField = view.viewWithTag(textField.tag + 1) {
             textField.resignFirstResponder()
             nextTextField.becomeFirstResponder()
+        } else {
+            view.endEditing(true)
         }
         return true
     }

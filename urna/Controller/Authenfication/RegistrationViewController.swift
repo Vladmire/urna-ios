@@ -12,11 +12,11 @@ class RegistrationViewController: UIViewController  {
     private let socialLinks = ["https:google.com", "https://vk.com", "https://facebook.com"]
     
     // MARK: - Outlets
-    
-    @IBOutlet var nameTextField: RoundedTextField!
-    @IBOutlet var emailTextField: RoundedTextField!
-    @IBOutlet var passwordTextField: RoundedTextField!
-    @IBAction func buttonTapped(_ sender: UIButton) {
+    @IBOutlet private var scrollView: UIScrollView!
+    @IBOutlet private var nameTextField: RoundedTextField!
+    @IBOutlet private var emailTextField: RoundedTextField!
+    @IBOutlet private var passwordTextField: RoundedTextField!
+    @IBAction private func buttonTapped(_ sender: UIButton) {
         switch sender.tag {
         case 0: openWithSafariViewController(socialLink: socialLinks[0])
         case 1: openWithSafariViewController(socialLink: socialLinks[1])
@@ -32,21 +32,18 @@ class RegistrationViewController: UIViewController  {
         
         navigationItem.backButtonTitle = ""
         
-        nameTextField.tag = 4
+        for (index, textField) in [nameTextField, emailTextField, passwordTextField].enumerated() {
+            textField?.tag = 4 + index
+            textField?.layer.cornerRadius = 50
+            textField?.autocorrectionType = .no
+            textField?.spellCheckingType = .no
+            textField?.delegate = self
+        }
         nameTextField.becomeFirstResponder()
-        nameTextField.autocorrectionType = .no
-        nameTextField.delegate = self
-        
-        emailTextField.tag = 5
-        emailTextField.autocorrectionType = .no
-        emailTextField.delegate = self
-        
-        passwordTextField.tag = 6
-        passwordTextField.autocorrectionType = .no
         
         // move view to the top when keyboard appear
-        //NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        //NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
         
         // Hide the keyboard
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
@@ -54,9 +51,28 @@ class RegistrationViewController: UIViewController  {
         view.addGestureRecognizer(tap)
     }
     
+    @objc func keyboardWillShow(notification:NSNotification) {
+
+        guard let userInfo = notification.userInfo else { return }
+        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+
+        var contentInset:UIEdgeInsets = self.scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height
+        scrollView.contentInset = contentInset
+        scrollView.scrollIndicatorInsets = contentInset
+    }
+
+    @objc func keyboardWillHide(notification:NSNotification) {
+
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInset
+        scrollView.scrollIndicatorInsets = contentInset
+    }
+    
     // MARK: - Open with safari function
     
-    func openWithSafariViewController(socialLink: String?) {
+    private func openWithSafariViewController(socialLink: String?) {
         guard let socialLink = socialLink else {
         return
         }
@@ -68,7 +84,7 @@ class RegistrationViewController: UIViewController  {
     
     // MARK: - Button Actions
     
-    @IBAction func registButtonTapped(sender: UIButton) {
+    @IBAction private func registButtonTapped(sender: UIButton) {
         [nameTextField, emailTextField, passwordTextField].forEach({ $0?.text = "123" })
         if nameTextField.text == "" || emailTextField.text == "" || passwordTextField.text == "" {
             let alertController = UIAlertController(title: "Oops", message: "We can't create a new account because one of the fields is blank. Please note that all fields are required.", preferredStyle: .alert)
@@ -82,27 +98,18 @@ class RegistrationViewController: UIViewController  {
         }
     }
     // func for work with keyboard
-//    @objc func keyboardWillShow(notification: NSNotification) {
-//        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-//            if self.view.frame.origin.y == 0 {
-//                self.view.frame.origin.y -= keyboardSize.height
-//                NSLayoutConstraint().constant = keyboardSize.height
-//            }
-//        }
-//    }
-//
-//    @objc func keyboardWillHide(notification: NSNotification) {
-//        if self.view.frame.origin.y != 0 {
-//            self.view.frame.origin.y = 0
-//        }
-//    }
+    
 }
+
+    // MARK: - NextTextField action
 
 extension RegistrationViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let nextTextField = view.viewWithTag(textField.tag + 1) {
             textField.resignFirstResponder()
             nextTextField.becomeFirstResponder()
+        } else {
+            view.endEditing(true)
         }
         return true
     }

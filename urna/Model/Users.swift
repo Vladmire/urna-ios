@@ -15,11 +15,11 @@ struct User: Hashable {
         case hidden = "hidden"
     }
     
-    let userID: Int
-    let login: String
-    let password: String
-    let email: String
-    let image: String
-    let name: String
-    let gender: Gender?
+    var userID: Int
+    var login: String
+    var password: String
+    var email: String
+    var image: String
+    var name: String
+    var gender: Gender?
 }

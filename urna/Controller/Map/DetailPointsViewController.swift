@@ -145,7 +145,7 @@ class DetailPointsViewController: UITableViewController {
                 cell.usernameImage.image = UIImage(named: review.image)
                 
                 let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
+                dateFormatter.dateFormat = "dd/MM/yyyy"
                 
                 cell.dateLabel.text = dateFormatter.string(from: review.date)
                 var i = 0

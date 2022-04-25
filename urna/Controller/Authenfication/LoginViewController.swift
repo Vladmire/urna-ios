@@ -24,15 +24,29 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let navbar = navigationController?.navigationBar
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.shadowColor = .clear
+        navigationBarAppearance.backgroundColor = UIColor.white
+        navbar?.standardAppearance = navigationBarAppearance
+        navbar?.scrollEdgeAppearance = navigationBarAppearance
     }
-    */
-
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        let navbar = navigationController?.navigationBar
+        let navigationBarAppearance = UINavigationBarAppearance()
+        
+        var backButtonImage = UIImage(systemName: "arrow.backward", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20.0, weight:  .bold))
+        backButtonImage = backButtonImage?.withAlignmentRectInsets(UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0))
+        navigationBarAppearance.setBackIndicatorImage(backButtonImage, transitionMaskImage: backButtonImage)
+        navigationBarAppearance.backgroundColor = UIColor(named: "mainMarine")
+        navbar?.tintColor = .white
+        navigationBarAppearance.shadowColor = .clear
+        navbar?.standardAppearance = navigationBarAppearance
+        navbar?.scrollEdgeAppearance = navigationBarAppearance
+    }
 }

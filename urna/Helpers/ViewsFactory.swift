@@ -13,12 +13,16 @@ struct ViewsFactory {
     // MARK: - Create button
     
     static func createButton(title: String?,
+                             image: String? = "",
                              titleColor: UIColor? = UIColor(named: "mainMarine"),
                              backgroundColor: UIColor? = .white,
                              cornerRadius: CGFloat = 0.0) -> UIButton {
         let button = UIButton(type: .system)
         button.backgroundColor = backgroundColor
         button.setTitle(title, for: .normal)
+        if let buttonImage = image {
+            button.setImage(UIImage(named: buttonImage), for: .normal)
+        }
         button.setTitleColor(titleColor, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = cornerRadius
