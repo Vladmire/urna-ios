@@ -9,17 +9,65 @@ import UIKit
 import MapKit
 
 class MapViewController: UIViewController {
-    
+
+    private var currentAnnotations: [MyAnnotation] = []
     private let pointsProvider = PointsProvider()
+    private var isFilterButtonTapped = Array(repeating: true, count: 4)
     
     // MARK: - Outlets
     
-    @IBOutlet var mapView: MKMapView!
+    @IBOutlet private var mapView: MKMapView!
+    @IBOutlet private var filterButton: UIButton!
+    @IBAction private func filterButtonTapped() {
+        let controller = FilterViewController.makeFilterVC(currentFilter: isFilterButtonTapped) { [weak self] filterTapped in
+            self?.isFilterButtonTapped = filterTapped
+            if !filterTapped.elementsEqual([true, true, true, true]) {
+                self!.hideAnnotations(self!.currentAnnotations)
+            }
+        
+            var filteredAnnotations: [MyAnnotation] = []
+            if !self!.isFilterButtonTapped[0] {
+                for annotation in self!.currentAnnotations {
+                    if annotation.point.type!.contains(.plastic) {
+                        filteredAnnotations.append(annotation)
+                    }
+                }
+            }
+            if !self!.isFilterButtonTapped[1] {
+                for annotation in self!.currentAnnotations {
+                    if annotation.point.type!.contains(.bio) {
+                        filteredAnnotations.append(annotation)
+                    }
+                }
+            }
+            if !self!.isFilterButtonTapped[2] {
+                for annotation in self!.currentAnnotations {
+                    if annotation.point.type!.contains(.paper) {
+                        filteredAnnotations.append(annotation)
+                    }
+                }
+            }
+            if !self!.isFilterButtonTapped[3] {
+                for annotation in self!.currentAnnotations {
+                    if annotation.point.type!.contains(.batteries) {
+                        filteredAnnotations.append(annotation)
+                    }
+                }
+            }
+            self!.showDownloadedPoints(filteredAnnotations)
+        }
+        controller.modalPresentationStyle = .overFullScreen
+        self.present(controller, animated: false, completion: nil)
+        
+       
+    }
     
     // MARK: - ViewdidLoad method
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        filterButton.layer.cornerRadius = filterButton.frame.height / 5
         
         navigationItem.backButtonTitle = ""
         // TODO: show loading indicator
@@ -29,14 +77,15 @@ class MapViewController: UIViewController {
                 //TODO: show error
                 print(err)
             } else {
-                self?.showDownloadedPoints(points ?? [])
+                self?.decodePointLocation(points: points ?? [])
             }
         }
     }
     
-    // MARK: - Show points
+    // MARK: - decode point location
     
-    private func showDownloadedPoints(_ points: [Point]) {
+    private func decodePointLocation(points: [Point]) {
+        
         var annotations: [MyAnnotation] = []
         let group = DispatchGroup()
         for point in points {
@@ -62,15 +111,28 @@ class MapViewController: UIViewController {
             })
         }
         group.notify(queue: .main) { [weak self] in
-            self?.mapView.showAnnotations(annotations, animated: true)
+            self!.currentAnnotations = annotations
+            self?.showDownloadedPoints(annotations)
+            
         }
+    }
+    
+    // MARK: - Show points
+    
+    private func showDownloadedPoints(_ annotations: [MyAnnotation]) {
+        mapView.showAnnotations(annotations, animated: true)
+        
+    }
+    
+    private func hideAnnotations(_ annotations: [MyAnnotation]) {
+        mapView.removeAnnotations(annotations)
     }
 
     // MARK: - Handlers
     
-    @IBAction func showFilter(sender: UIButton) {
-        performSegue(withIdentifier: "filter", sender: nil)
-    }
+//    @IBAction private func showFilter(sender: UIButton) {
+//        performSegue(withIdentifier: "filter", sender: nil)
+//    }
 
 }
 

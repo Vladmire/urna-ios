@@ -10,7 +10,7 @@ import UIKit
 class DeleteAccountView: UIView {
 
     //MARK: - propeties
-    let warningImage = ViewsFactory.createImage(imageName: "warningVect")
+    let warningImage = ViewsFactory.createImage(imageName: "warningVect", tintColor: "deleteColor")
     let titleLabel = ViewsFactory.createLabel(text: "Are you sure to delete an account", fontName: "Avenir", fontsize: 25)
     let textLabel = ViewsFactory.createLabel(text: "If you delete account you will lost your data", fontName: "Avenir", fontsize: 16)
     let deleteButton = ViewsFactory.createButton(title: "Delete", titleColor: .white, backgroundColor: UIColor(named: "deleteColor"), cornerRadius: 20)

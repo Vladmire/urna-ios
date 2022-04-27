@@ -11,7 +11,7 @@ class PointsProvider {
     
     private let points = [Point(pointID: 1,
                                 name: "campus A",
-                                type: .none,
+                                type: [.batteries, .paper, .plastic],
                                 location: "Chekhov Street, 22 Taganrog Rostov Oblast Russia 347922",
                                 image: "campusA",
                                 schedule: "пн. - пт. 9:30 - 17:00",
@@ -19,7 +19,7 @@ class PointsProvider {
                           
                           Point(pointID: 2,
                                 name: "campus B",
-                                type: .none,
+                                type: [.bio, .paper, .plastic],
                                 location: "Chekhov Street, 24 Taganrog Rostov Oblast Russia 347922",
                                 image: "campusB",
                                 schedule: "пн. - пт. 9:30 - 17:00",
@@ -27,7 +27,7 @@ class PointsProvider {
                           
                           Point(pointID: 3,
                                 name: "campus V",
-                                type: .none,
+                                type: [.bio, .paper, .plastic],
                                 location: "Petrovskaya Street, 81 Taganrog Rostov Oblast Russia 347900",
                                 image: "campusV",
                                 schedule: "пн. - пт. 9:30 - 17:00",
@@ -35,7 +35,7 @@ class PointsProvider {
                           
                           Point(pointID: 4,
                                 name: "Campus G",
-                                type: .none,
+                                type: [.bio, .paper, .plastic],
                                 location: "Engelsa Street, 1 Taganrog, Rostov Oblast Russia 347922",
                                 image: "campusG",
                                 schedule: "пн. - пт. 9:30 - 17:00",
@@ -43,7 +43,7 @@ class PointsProvider {
                           
                           Point(pointID: 5,
                                 name: "campus D",
-                                type: .none,
+                                type: [.batteries, .paper, .plastic],
                                 location: "Nekrasovskiy Lane, 44 Taganrog, Rostov Oblast Russia 347928",
                                 image: "campusD",
                                 schedule: "пн. - пт. 9:30 - 17:00",
@@ -51,7 +51,7 @@ class PointsProvider {
                           
                           Point(pointID: 6,
                                 name: "campus I",
-                                type: .none,
+                                type: [.batteries, .paper, .plastic],
                                 location: "Chekhov Street, 2 Taganrog Rostov Oblast Russia 347922",
                                 image: "campusI",
                                 schedule: "пн. - пт. 9:30 - 17:00",

@@ -10,14 +10,15 @@ import Foundation
 struct Point: Hashable {
     
     enum PointType: String {
-        case paper
-        case plastic
-        case bio
+        case paper = "Paper"
+        case plastic = "Plastic"
+        case bio = "BIO"
+        case batteries = "Batteries"
     }
     
     let pointID: Int
     let name: String
-    let type: PointType?
+    let type: [PointType]?
     let location: String
     let image: String
     let schedule: String

@@ -40,7 +40,6 @@
 		693D90C827E0CF0D00CB0AC5 /* EnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693D90C727E0CF0C00CB0AC5 /* EnterViewController.swift */; };
 		693FDA7628115B4E00FF18CA /* UIButton+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693FDA7528115B4E00FF18CA /* UIButton+Convenience.swift */; };
 		69488CB827FD828C00ACD23B /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69488CB727FD828C00ACD23B /* Reviews.swift */; };
-		69488CBF27FD8C4700ACD23B /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69488CBE27FD8C4700ACD23B /* Filter.swift */; };
 		69488CC227FD996300ACD23B /* PointsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69488CC127FD996300ACD23B /* PointsProvider.swift */; };
 		69488CC427FD9BF000ACD23B /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69488CC327FD9BF000ACD23B /* UserManager.swift */; };
 		694D3E6C28082ED70026436B /* DetailedPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694D3E6B28082ED70026436B /* DetailedPresentationController.swift */; };
@@ -108,7 +107,6 @@
 		693D90C727E0CF0C00CB0AC5 /* EnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterViewController.swift; sourceTree = "<group>"; };
 		693FDA7528115B4E00FF18CA /* UIButton+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Convenience.swift"; sourceTree = "<group>"; };
 		69488CB727FD828C00ACD23B /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
-		69488CBE27FD8C4700ACD23B /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		69488CC127FD996300ACD23B /* PointsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsProvider.swift; sourceTree = "<group>"; };
 		69488CC327FD9BF000ACD23B /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		694D3E6B28082ED70026436B /* DetailedPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedPresentationController.swift; sourceTree = "<group>"; };
@@ -181,7 +179,6 @@
 				693D90BE27E0B40C00CB0AC5 /* Points.swift */,
 				6900A1C527E223F6006DAB39 /* Users.swift */,
 				69488CB727FD828C00ACD23B /* Reviews.swift */,
-				69488CBE27FD8C4700ACD23B /* Filter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -495,7 +492,6 @@
 			files = (
 				69243DC2280ECBEC001B1E91 /* WriteReviewViewController.swift in Sources */,
 				691D4D9927E8AFBF000C82C9 /* FilterViewController.swift in Sources */,
-				69488CBF27FD8C4700ACD23B /* Filter.swift in Sources */,
 				693D90C627E0C9F400CB0AC5 /* RegistrationViewController.swift in Sources */,
 				6930441827E377D200A10B7D /* ForgotViewController.swift in Sources */,
 				6903F08227FECA5800DF2F63 /* PlaceMarks.swift in Sources */,

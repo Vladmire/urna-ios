@@ -54,9 +54,11 @@ struct ViewsFactory {
     // MARK: - Create image
     
     static func createImage(imageName: String,
-                            cornerRadius: CGFloat = 0.0) -> UIImageView {
+                            cornerRadius: CGFloat = 0.0,
+                            tintColor: String) -> UIImageView {
         let image = UIImageView()
         image.image = UIImage(named: imageName)
+        image.tintColor = UIColor(named: tintColor)
         image.translatesAutoresizingMaskIntoConstraints = false
         image.layer.cornerRadius = cornerRadius
         return image

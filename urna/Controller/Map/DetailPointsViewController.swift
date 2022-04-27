@@ -22,10 +22,6 @@ class DetailPointsViewController: UITableViewController {
     private var currentReviews: [Review] = []
     private var currentPoint: Point!
     private var userReviews: User!
-
-    private let filter: [Filter] = [Filter(title: "Plastic", image: "bottle", type: .plastic),
-                            Filter(title: "BIO", image: "apple", type: .bio),
-                            Filter(title: "Paper", image: "document", type: .paper)]
     
     //get selected point from MapVC
     convenience init(currentPoint: Point) {
@@ -89,14 +85,14 @@ class DetailPointsViewController: UITableViewController {
         reloadReviews()
         //set value for elements
         
-        filterButtons1.setTitle(filter[0].title, for: .normal)
-        filterButtons1.setImage(UIImage(named: filter[0].image), for: .normal)
+        filterButtons1.setTitle(currentPoint.type?[0].rawValue ?? "", for: .normal)
+        filterButtons1.setImage(UIImage(named: currentPoint.type?[0].rawValue ?? ""), for: .normal)
 
-        filterButtons2.setTitle(filter[1].title, for: .normal)
-        filterButtons2.setImage(UIImage(named: filter[1].image), for: .normal)
+        filterButtons2.setTitle(currentPoint.type?[1].rawValue, for: .normal)
+        filterButtons2.setImage(UIImage(named: currentPoint.type?[1].rawValue ?? ""), for: .normal)
 
-        filterButtons3.setTitle(filter[2].title, for: .normal)
-        filterButtons3.setImage(UIImage(named: filter[2].image), for: .normal)
+        filterButtons3.setTitle(currentPoint.type?[2].rawValue, for: .normal)
+        filterButtons3.setImage(UIImage(named: currentPoint.type?[2].rawValue ?? ""), for: .normal)
         
         writeReviewButton.layer.cornerRadius = 20.0
         closeButton.setTitle("", for: .normal)

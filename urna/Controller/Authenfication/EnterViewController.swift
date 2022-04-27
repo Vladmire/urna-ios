@@ -12,7 +12,7 @@ class EnterViewController: UIViewController {
     private let socialLinks = ["https:google.com", "https://vk.com", "https://facebook.com"]
     
     // MARK: - Outlets
-    
+    @IBOutlet private var stackView: UIStackView!
     @IBOutlet private var scrollView: UIScrollView!
     @IBOutlet var socialButtons: [UIButton]!
     @IBOutlet var nameTextField: RoundedTextField!
@@ -69,14 +69,21 @@ class EnterViewController: UIViewController {
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
+    // MARK: - TO DO:
+//    private var safeAreaHeight: CGFloat = 774
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//
+//        safeAreaHeight = view.safeAreaLayoutGuide.layoutFrame.height
+//    }
     @objc func keyboardWillShow(notification:NSNotification) {
 
         guard let userInfo = notification.userInfo else { return }
         var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
-
+        //let bottomInset = keyboardFrame.size.height - safeAreaHeight + stackView.frame.height + stackView.frame.origin.y + 10
         var contentInset:UIEdgeInsets = self.scrollView.contentInset
-        contentInset.bottom = keyboardFrame.size.height
+        contentInset.bottom =  keyboardFrame.size.height
         scrollView.contentInset = contentInset
         scrollView.scrollIndicatorInsets = contentInset
     }
