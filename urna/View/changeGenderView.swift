@@ -17,10 +17,17 @@ class changeGenderView: UIView {
     let saveButton = ViewsFactory.createButton(title: "Save")
     let cancelButton = ViewsFactory.createButton(title: "Cancel")
 
+
     //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
+        
+        titleLabel.font = UIFont(name: "Montserrat-Bold", size: 25)
+        radioButton_1.titleLabel?.font = UIFont(name: "Poppins-Medium", size: 17)
+        radioButton_2.titleLabel?.font = UIFont(name: "Poppins-Medium", size: 17)
+        saveButton.titleLabel?.font = UIFont(name: "Montserrat-SemiBold", size: 17)
+        cancelButton.titleLabel?.font = UIFont(name: "Montserrat-SemiBold", size: 17)
         
         addSubview(titleLabel)
         titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
@@ -35,7 +42,7 @@ class changeGenderView: UIView {
         radioButton_1.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -25).isActive = true
         
         radioButton_1.setImage(UIImage(named: "radioButtonOff"), for: .normal)
-        radioButton_1.setImage(UIImage(named: "radioButtonOn"), for: .selected)
+        radioButton_1.setImage(UIImage(named: "RadioButtonOn"), for: .selected)
         
         
         
@@ -48,7 +55,7 @@ class changeGenderView: UIView {
         radioButton_2.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -25).isActive = true
         
         radioButton_2.setImage(UIImage(named: "radioButtonOff"), for: .normal)
-        radioButton_2.setImage(UIImage(named: "radioButtonOn"), for: .selected)
+        radioButton_2.setImage(UIImage(named: "RadioButtonOn"), for: .selected)
         
         addSubview(saveButton)
         saveButton.topAnchor.constraint(equalTo: radioButton_2.bottomAnchor, constant: 30).isActive = true

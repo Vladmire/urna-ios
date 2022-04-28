@@ -24,6 +24,14 @@ class NewPasswordView: UIView {
         super.init(frame: frame)
         backgroundColor = .white
         
+        titleLabel.font = UIFont(name: "Montserrat-Bold", size: 25)
+        textLabel.font = UIFont(name: "Montserrat-Medium", size: 15)
+        textField.font = UIFont(name: "Montserrat-Regular", size: 17)
+        newTextLabel.font = UIFont(name: "Montserrat-Medium", size: 15)
+        newTextField.font = UIFont(name: "Montserrat-Regular", size: 17)
+        saveButton.titleLabel?.font = UIFont(name: "Montserrat-SemiBold", size: 17)
+        cancelButton.titleLabel?.font = UIFont(name: "Montserrat-SemiBold", size: 17)
+        
         addSubview(titleLabel)
         titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20).isActive = true

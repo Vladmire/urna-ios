@@ -592,8 +592,7 @@
                                         </constraints>
                                         <color key="tintColor" systemColor="systemGrayColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" image="Batteries" imagePlacement="top" title="Batteries" titleAlignment="automatic">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="Batteries">
                                             <fontDescription key="titleFontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -1232,7 +1231,6 @@
     </scenes>
     <resources>
         <image name="BIO" width="42" height="42"/>
-        <image name="Batteries" width="60" height="60"/>
         <image name="Paper" width="44" height="45"/>
         <image name="Plastic" width="19" height="46"/>
         <image name="accIcon" width="35" height="35"/>

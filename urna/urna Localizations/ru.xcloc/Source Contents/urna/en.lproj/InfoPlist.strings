@@ -1,0 +1,4 @@
+/* Bundle name */
+"CFBundleName" = "urna";
+/* Privacy - Location When In Use Usage Description */
+"NSLocationWhenInUseUsageDescription" = "This app wants to use your location";

@@ -8,7 +8,7 @@ import SafariServices
 import UIKit
 
 class RegistrationViewController: UIViewController  {
-    
+
     private let socialLinks = ["https:google.com", "https://vk.com", "https://facebook.com"]
     
     // MARK: - Outlets
@@ -85,19 +85,20 @@ class RegistrationViewController: UIViewController  {
     // MARK: - Button Actions
     
     @IBAction private func registButtonTapped(sender: UIButton) {
-        [nameTextField, emailTextField, passwordTextField].forEach({ $0?.text = "123" })
+//        [nameTextField, emailTextField, passwordTextField].forEach({ $0?.text = "123" })
+        
         if nameTextField.text == "" || emailTextField.text == "" || passwordTextField.text == "" {
             let alertController = UIAlertController(title: "Oops", message: "We can't create a new account because one of the fields is blank. Please note that all fields are required.", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alertController.addAction(alertAction)
             present(alertController, animated: true, completion: nil)
         } else {
+            UserManager.shared.signUp(login: nameTextField.text ?? "", password: passwordTextField.text ?? "", email: emailTextField.text ?? "")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let tabBarController = storyboard.instantiateInitialViewController()!
             view.window?.windowScene?.windows.first?.rootViewController = tabBarController
         }
     }
-    // func for work with keyboard
     
 }
 

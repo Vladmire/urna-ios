@@ -54,6 +54,8 @@ class PopUpWindowViewController: UIViewController {
         popUpWindow.saveButton.addTarget(self, action: #selector(saveButtonPressed), for: .touchUpInside)
         popUpWindow.cancelButton.addTarget(self, action: #selector(cancelButtonPressed), for: .touchUpInside)
         
+        
+        
     }
     
     // MARK: - ViewDidAppear method

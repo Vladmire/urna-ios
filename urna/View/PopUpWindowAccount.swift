@@ -11,7 +11,7 @@ class PopUpWindowAccount: UIView {
 
     // MARK: - Propeties
     
-    let titleLabel = ViewsFactory.createLabel(text: "Name and Surname", fontName: "Avenir", fontsize: 25)
+    let titleLabel = ViewsFactory.createLabel(text: "Name and Surname", fontName: "Mont", fontsize: 25)
     let textLabel = ViewsFactory.createLabel(text: "Enter your new name and surname", fontName: "Avenir", fontsize: 16)
     let textField = ViewsFactory.createTextField()
     let saveButton = ViewsFactory.createButton(title: "Save")
@@ -23,6 +23,13 @@ class PopUpWindowAccount: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
+        
+        titleLabel.font = UIFont(name: "Montserrat-Bold", size: 25)
+        textLabel.font = UIFont(name: "Montserrat-Medium", size: 15)
+        textField.font = UIFont(name: "Montserrat-Regular", size: 17)
+        saveButton.titleLabel?.font = UIFont(name: "Montserrat-SemiBold", size: 17)
+        cancelButton.titleLabel?.font = UIFont(name: "Montserrat-SemiBold", size: 17)
+    
         
         addSubview(titleLabel)
         titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true

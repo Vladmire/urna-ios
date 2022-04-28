@@ -93,13 +93,13 @@ class ChangeGenderViewController: UIViewController {
     @objc private func radioButtonTapped() {
         
         if isSelected {
-            changeGender.radioButton_1.setImage(UIImage(named: "radioButtonOn"), for: .normal)
+            changeGender.radioButton_1.setImage(UIImage(named: "RadioButtonOn"), for: .normal)
             changeGender.radioButton_2.setImage(UIImage(named: "radioButtonOff"), for: .normal)
             isSelected = false
             currentGender = .male
         } else {
             changeGender.radioButton_1.setImage(UIImage(named: "radioButtonOff"), for: .normal)
-            changeGender.radioButton_2.setImage(UIImage(named: "radioButtonOn"), for: .normal)
+            changeGender.radioButton_2.setImage(UIImage(named: "RadioButtonOn"), for: .normal)
             isSelected = true
             currentGender = .female
         }

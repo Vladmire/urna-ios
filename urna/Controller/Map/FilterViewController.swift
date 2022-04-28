@@ -78,21 +78,20 @@ class FilterViewController: UIViewController {
     
     var completion: (([Bool]) -> Void)?
     
-//    private func changeFilterStatus(butTapped: [Bool]) {
-//        for butTap in butTapped {
-//            var i = 0
-//            if !butTap {
-//                filterButton[i].backgroundColor = UIColor(named: "filterBgTapped")
-//                filterButton[i].tintColor = UIColor(named: "filterTappedTint")
-//            }
-//            i += 1
-//        }
-//    }
+    private func changeFilterStatus(butTapped: [Bool]) {
+        var i = 0
+        for butTap in butTapped {
+            if !butTap {
+                filterButton[i].backgroundColor = UIColor(named: "filterBgTapped")
+                filterButton[i].tintColor = UIColor(named: "filterTappedTint")
+            }
+            i += 1
+        }
+    }
     
     static func makeFilterVC(currentFilter: [Bool], completion: @escaping ([Bool]) -> Void) -> FilterViewController {
         let newViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "filterViewController") as! FilterViewController
         newViewController.butTapped = currentFilter
-        //newViewController.changeFilterStatus(butTapped: currentFilter)
         newViewController.completion = completion
         return newViewController
     }
@@ -100,10 +99,14 @@ class FilterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            //showAnimate()
+
         for filterButton in filterButton {
             filterButton.layer.cornerRadius = 10
         }
         applyButton.layer.cornerRadius = 20
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        changeFilterStatus(butTapped: butTapped)
     }
 }

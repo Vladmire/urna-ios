@@ -27,7 +27,7 @@ class EnterViewController: UIViewController {
     }
     
     @IBAction func enterButtonTapped(sender: UIButton) {
-        [nameTextField, passwordTextField].forEach({ $0?.text = "123" })
+//        [nameTextField, passwordTextField].forEach({ $0?.text = "123" })
         
         if nameTextField.text == "" || passwordTextField.text == "" {
             let alertController = UIAlertController(title: "Oops", message: "Please note that all fields are required.", preferredStyle: .alert)
@@ -35,9 +35,19 @@ class EnterViewController: UIViewController {
             alertController.addAction(alertAction)
             present(alertController, animated: true, completion: nil)
         } else {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let tabBarController = storyboard.instantiateInitialViewController()!
-            view.window?.windowScene?.windows.first?.rootViewController = tabBarController
+            if UserManager.shared.login(email: nameTextField.text!, password: passwordTextField.text!) {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let tabBarController = storyboard.instantiateInitialViewController()!
+                view.window?.windowScene?.windows.first?.rootViewController = tabBarController
+            } else {
+                nameTextField.text = ""
+                passwordTextField.text = ""
+                
+                let alertController = UIAlertController(title: "Oops", message: "Wrong login or password. Check it again!", preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(alertAction)
+                present(alertController, animated: true, completion: nil)
+            }
         }
     }
     //forgot password action
@@ -70,18 +80,12 @@ class EnterViewController: UIViewController {
         view.addGestureRecognizer(tap)
     }
     // MARK: - TO DO:
-//    private var safeAreaHeight: CGFloat = 774
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//
-//        safeAreaHeight = view.safeAreaLayoutGuide.layoutFrame.height
-//    }
+
     @objc func keyboardWillShow(notification:NSNotification) {
 
         guard let userInfo = notification.userInfo else { return }
         var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
-        //let bottomInset = keyboardFrame.size.height - safeAreaHeight + stackView.frame.height + stackView.frame.origin.y + 10
         var contentInset:UIEdgeInsets = self.scrollView.contentInset
         contentInset.bottom =  keyboardFrame.size.height
         scrollView.contentInset = contentInset
