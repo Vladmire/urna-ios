@@ -20,7 +20,7 @@ class AccountViewController: UIViewController {
         
         username[0].text = currentUser?.name ?? ""
         username[1].text = currentUser?.name ?? ""
-        //gender.text = currentUser?.gender
+
         email.text = currentUser?.email ?? ""
         password.text = currentUser?.password
          
@@ -147,6 +147,7 @@ class AccountViewController: UIViewController {
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
             if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                //currentUser?.image = selectedImage.
                 userAvatar.image = selectedImage
                 userAvatar.contentMode = .scaleToFill
                 userAvatar.clipsToBounds = true
