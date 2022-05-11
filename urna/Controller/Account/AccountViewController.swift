@@ -9,7 +9,7 @@ import UIKit
 
 class AccountViewController: UIViewController {
     
-   private var currentUser = UserManager.shared.currentUser
+    private var currentUser = UserManager.shared.currentUser
     
     // MARK: - ViewDidLoad method
     
@@ -56,6 +56,8 @@ class AccountViewController: UIViewController {
             let controller = PopUpWindowViewController { [weak self] text in
                 self?.username[0].text = text
                 self?.username[1].text = text
+                self?.currentUser?.name = text
+                //UserManager.shared.changeUser()
             }
             controller.modalPresentationStyle = .overFullScreen
             self.present(controller, animated: false, completion: nil)
@@ -71,18 +73,23 @@ class AccountViewController: UIViewController {
                     self?.gender.text = "Female"
                 }
                 self?.currentUser?.gender = gender
+                //UserManager.shared.changeUser()
             }
             controller.modalPresentationStyle = .overFullScreen
             self.present(controller, animated: false, completion: nil)
         case 3:
             let controller = NewEmailViewConroller { [weak self] text in
                 self?.email.text = text
+                self?.currentUser?.email = text
+                //UserManager.shared.changeUser()
             }
             controller.modalPresentationStyle = .overFullScreen
             self.present(controller, animated: false, completion: nil)
         case 4:
             let controller = NewPasswordViewController { [weak self] text in
                 self?.password.text = text
+                self?.currentUser?.password = text
+                //UserManager.shared.changeUser()
             }
             controller.modalPresentationStyle = .overFullScreen
             self.present(controller, animated: false, completion: nil)
@@ -92,20 +99,25 @@ class AccountViewController: UIViewController {
     }
     // MARK: - delete logout buttons
     @IBAction func logout(sender: UIButton) {
+        UserManager.shared.logout()
         let storyboard = UIStoryboard(name: "Auth", bundle: nil)
         let navigationController = storyboard.instantiateInitialViewController()!
         view.window?.windowScene?.windows.first?.rootViewController = navigationController
+        
     }
     
     @IBAction func deleteAccount(sender: UIButton) {
-        let controller = DeleteAccountViewController { [weak self] _ in
-            let storyboard = UIStoryboard(name: "Auth", bundle: nil)
-            let navigationController = storyboard.instantiateInitialViewController()!
-            self?.view.window?.windowScene?.windows.first?.rootViewController = navigationController
+        let controller = DeleteAccountViewController { [weak self] isTapped in
+            if isTapped {
+                UserManager.shared.deleteAccount()
+                let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+                let navigationController = storyboard.instantiateInitialViewController()!
+                self?.view.window?.windowScene?.windows.first?.rootViewController = navigationController
+            }
         }
         controller.modalPresentationStyle = .overFullScreen
         self.present(controller, animated: false, completion: nil)
-        UserManager.shared.logout()
+        
         
         
     }
@@ -147,7 +159,7 @@ class AccountViewController: UIViewController {
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
             if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                //currentUser?.image = selectedImage.
+                //currentUser?.image = selectedImage
                 userAvatar.image = selectedImage
                 userAvatar.contentMode = .scaleToFill
                 userAvatar.clipsToBounds = true

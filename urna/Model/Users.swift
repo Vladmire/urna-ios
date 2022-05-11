@@ -10,9 +10,9 @@ import Foundation
 struct User: Hashable {
     
     enum Gender: String {
-        case male = "male"
-        case female = "female"
-        case hidden = "hidden"
+        case male
+        case female
+        case hidden
     }
     
     var userID: Int

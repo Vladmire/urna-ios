@@ -22,10 +22,19 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.backButtonTitle = ""
         // Do any additional setup after loading the view.
+        let isAuthorized = UserManager.shared.getCurrentUser()
+        if  isAuthorized != nil {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let tabBarController = storyboard.instantiateInitialViewController()!
+            UIApplication.shared.windows[0].rootViewController = tabBarController
+//            view.window?.windowScene?.windows.first?.rootViewController = tabBarController
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        
         
         let navbar = navigationController?.navigationBar
         let navigationBarAppearance = UINavigationBarAppearance()

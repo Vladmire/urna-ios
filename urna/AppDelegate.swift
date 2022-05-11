@@ -30,6 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
         }
         
+    
+        
+        
+        
         return true
     }
 

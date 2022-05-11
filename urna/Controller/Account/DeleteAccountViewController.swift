@@ -26,9 +26,9 @@ class DeleteAccountViewController: UIViewController {
         return view
     }()
     
-    let completion: (String) -> Void
+    let completion: (Bool) -> Void
     
-    init(completion: @escaping (String) -> Void) {
+    init(completion: @escaping (Bool) -> Void) {
         self.completion = completion
         super.init(nibName: nil, bundle: nil)
     }
@@ -79,7 +79,7 @@ class DeleteAccountViewController: UIViewController {
     
     @objc private func deleteButtonPressed() {
         cancelButtonPressed()
-        completion("")
+        completion(true)
     }
     
     @objc private func cancelButtonPressed() {
