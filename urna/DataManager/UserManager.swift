@@ -9,129 +9,105 @@ import Foundation
 
 class UserManager {
     
-    let defaults = UserDefaults.standard
-    
-    private(set) var currentUser: User? = User(userID: 0 ,login: "admin", password: "admin", email: "dubo@sfedu.ru", image: "accIcon", name: "Gosha", gender: .male)
-    //currentUser = getCurrentUser()
+    private let defaults = UserDefaults.standard
+    private(set) var currentUser: User? = nil {
+        didSet {
+            if let user = currentUser {
+                defaults.set(user.email, forKey: "currentUserEmail")
+            } else {
+                defaults.removeObject(forKey: "currentUserEmail")
+            }
+        }
+    }
+    var isLoggedIn: Bool {
+        return currentUser != nil
+    }
     static let shared = UserManager()
     
-    private init() {}
-    
-    // MARK: - login function
-    func login(email: String, password: String) -> Bool {
-        // TODO: login api
-        // TODO: save to currentUser
-        let usersCount = defaults.integer(forKey: "usercount")
-        var count = 1
-        var isEqual: Bool = false
-        
-        while count <= usersCount {
-            currentUser = getUsers(counter: count)
-            if currentUser?.login == email && currentUser?.password == password {
-                isEqual = true
-                saveCurrentUser(user: currentUser!)
-            }
-            count += 1
+    private init() {
+        if let currentUserEmail = defaults.string(forKey: "currentUserEmail") {
+            currentUser = self.users().first(where: { $0.email == currentUserEmail })
         }
-        
-        return isEqual
     }
     
-    // MARK: - registration function
-    func signUp(login: String, password: String, email: String) {
-        currentUser = User(userID: 0 ,login: "admin", password: "admin", email: "dubo@sfedu.ru", image: "accIcon", name: "Gosha", gender: .male)
-        currentUser?.name = login
-        currentUser?.login = login
-        currentUser?.password = password
-        currentUser?.email = email
-        currentUser?.userID = userCounter()
-        
-        saveCurrentUser(user: currentUser!)
+    func login(email: String, password: String) -> Bool {
+        let users = self.users()
+        currentUser = users.first(where: { $0.email == email })
+        return currentUser != nil
     }
     
-    // MARK: - logout function
+    func signUp(login: String, password: String, email: String) -> Bool {
+        
+        // TODO: check if user with the same login/email already exists
+        let dict = users()
+        if dict.contains(where: { $0.login == login }) {
+            return false
+        } else {
+            currentUser = createCurrentUser(login: login, password: password, email: email, name: login)
+            addUser(currentUser!)
+            return true
+        }
+    }
+    
     func logout() {
         currentUser = nil
-        defaults.removeObject(forKey: "currentUser")
     }
-    // MARK: - delete account function
+    
     func deleteAccount() {
-        deleteCurrentUser()
-    }
-    // MARK: - change account info function
-    func changeUser() {
-        defaults.removeObject(forKey: "currentUser")
-        defaults.removeObject(forKey: String(currentUser?.userID ?? 0))
-        
-        defaults.set(currentUser, forKey: "currentUser")
-        defaults.set(currentUser, forKey: String(currentUser?.userID ?? 0))
-    }
-    // MARK: - save user function
-    private func saveCurrentUser(user: User) {
-        
-        defaults.removeObject(forKey: "currentUser")
-        defaults.removeObject(forKey: String(user.userID))
-        
-        let currentUser = ["id": String(user.userID),
-                           "login": user.login,
-                           "password": user.password,
-                           "name": user.name,
-                           "email": user.email,
-                           "image": user.image,
-                           "gender": user.gender?.rawValue]
-        
-        
-        defaults.set(currentUser, forKey: "currentUser")
-        if defaults.object(forKey: String(user.userID)) == nil {
-            defaults.set(currentUser, forKey: String(user.userID))
-        }
-        
+        removeUser(currentUser!)
+        logout()
     }
     
-    // MARK: - delete current user function
-    private func deleteCurrentUser() {
-        defaults.removeObject(forKey: "currentUser")
-        defaults.removeObject(forKey: String(currentUser?.userID ?? 0))
-        currentUser = nil
+    // MARK: - Internal Helpers
+    
+    private func users() -> [User] {
+        let users = defaults.array(forKey: "users") as? [[String: String]] ?? []
+        return users.map { User(userID: $0["id"]!,
+                                login: $0["login"]!,
+                                password: $0["password"]!,
+                                email: $0["email"]!,
+                                image: $0["image"]!,
+                                name: $0["name"]!,
+                                gender: User.Gender(rawValue: $0["gender"]!)!) }
     }
     
-    // MARK: - get current user function
-    func getCurrentUser() -> User? {
-        
-        guard let currentUser = defaults.object(forKey: "currentUser") as? [String:String] else {
-            return nil
-        }
-        let userId = currentUser["id"]!
-        var user = User(userID: Int(userId)!, login: currentUser["login"]!, password: currentUser["password"]!, email: currentUser["email"]!, image: currentUser["image"]!, name: currentUser["name"]!, gender: .male)
-        
-        if currentUser["gender"]! == "male" {
-            user.gender = .male
-        } else {
-            user.gender = .female
-        }
-        return user
+    private func addUser(_ user: User) {
+        let dict = ["id": String(user.userID),
+                    "login": user.login,
+                    "password": user.password,
+                    "name": user.name,
+                    "email": user.email,
+                    "image": user.image,
+                    "gender": user.gender.rawValue]
+        var users = defaults.array(forKey: "users") as? [[String: String]] ?? []
+        users.append(dict)
+        defaults.set(users, forKey: "users")
     }
-    // MARK: - get all user function
-    func getUsers(counter: Int) -> User? {
-        guard let currentUser = defaults.object(forKey: String(counter)) as? [String:String] else {
-            return nil
-        }
-        let userId = currentUser["id"]!
-        var user = User(userID: Int(userId)!, login: currentUser["login"]!, password: currentUser["password"]!, email: currentUser["email"]!, image: currentUser["image"]!, name: currentUser["name"]!, gender: .male)
-        
-        if currentUser["gender"]! == "male" {
-            user.gender = .male
-        } else {
-            user.gender = .female
-        }
-        return user
+    
+    private func removeUser(_ user: User) {
+        var users = defaults.array(forKey: "users") as? [[String: String]] ?? []
+        users.removeAll(where: { $0["email"] == user.email })
+        defaults.set(users, forKey: "users")
     }
-    // MARK: - user counter function
-    private func userCounter() -> Int {
-        var userNumber = 0
-        userNumber = defaults.integer(forKey: "usercount")
-        userNumber += 1
-        defaults.set(userNumber, forKey: "usercount")
-        return userNumber
+    
+    private func createCurrentUser(login: String, password: String, email: String, name: String) -> User {
+        currentUser = User(userID: NSUUID().uuidString,
+                           login: login,
+                           password: password,
+                           email: email,
+                           image: "accIcon",
+                           name: name,
+                           gender: .male)
+        return currentUser!
     }
+    
+    // MARK: - save current user function
+    func saveCurrentUser(person: User) {
+        var users = defaults.array(forKey: "users") as? [[String: String]] ?? []
+        users.removeAll(where: { $0["id"] == person.userID })
+        defaults.set(users, forKey: "users")
+        currentUser = person
+        addUser(person)
+    }
+    
 }

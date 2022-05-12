@@ -25,8 +25,6 @@ class RegistrationViewController: UIViewController  {
         }
     }
     
-    // MARK: - ViewDidLoad method
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,6 +38,8 @@ class RegistrationViewController: UIViewController  {
             textField?.delegate = self
         }
         nameTextField.becomeFirstResponder()
+        passwordTextField.rightView = UIButton.systemButton(with: UIImage(systemName: "eye")!, target: self, action: #selector(togglePassword))
+        passwordTextField.rightViewMode = .always
         
         // move view to the top when keyboard appear
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
@@ -49,6 +49,11 @@ class RegistrationViewController: UIViewController  {
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
+    }
+    
+    // MARK: - Handlers
+    @objc private func togglePassword() {
+        passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
     }
     
     @objc func keyboardWillShow(notification:NSNotification) {
@@ -70,8 +75,6 @@ class RegistrationViewController: UIViewController  {
         scrollView.scrollIndicatorInsets = contentInset
     }
     
-    // MARK: - Open with safari function
-    
     private func openWithSafariViewController(socialLink: String?) {
         guard let socialLink = socialLink else {
         return
@@ -82,28 +85,37 @@ class RegistrationViewController: UIViewController  {
         }
     }
     
-    // MARK: - Button Actions
-    
     @IBAction private func registButtonTapped(sender: UIButton) {
-//        [nameTextField, emailTextField, passwordTextField].forEach({ $0?.text = "123" })
-        
         if nameTextField.text == "" || emailTextField.text == "" || passwordTextField.text == "" {
             let alertController = UIAlertController(title: "Oops", message: "We can't create a new account because one of the fields is blank. Please note that all fields are required.", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alertController.addAction(alertAction)
             present(alertController, animated: true, completion: nil)
         } else {
-            UserManager.shared.signUp(login: nameTextField.text ?? "", password: passwordTextField.text ?? "", email: emailTextField.text ?? "")
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let tabBarController = storyboard.instantiateInitialViewController()!
-            view.window?.windowScene?.windows.first?.rootViewController = tabBarController
+            guard let loginText = nameTextField.text else {
+                return
+            }
+            guard let passwordText = passwordTextField.text else {
+                return
+            }
+            guard let emailText = emailTextField.text else {
+                return
+            }
+            if UserManager.shared.signUp(login: loginText, password:  passwordText, email: emailText) {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let tabBarController = storyboard.instantiateInitialViewController()!
+                view.window?.windowScene?.windows.first?.rootViewController = tabBarController
+            } else {
+                let alertController = UIAlertController(title: "Oops", message: "This user is already exist. Try another login", preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(alertAction)
+                present(alertController, animated: true, completion: nil)
+            }
         }
     }
-    
 }
 
     // MARK: - NextTextField action
-
 extension RegistrationViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let nextTextField = view.viewWithTag(textField.tag + 1) {

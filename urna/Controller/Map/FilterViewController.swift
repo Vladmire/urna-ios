@@ -9,7 +9,7 @@ import UIKit
 
 class FilterViewController: UIViewController {
     
-    private var butTapped = Array(repeating: true, count: 4)
+    private var butTapped = Array(repeating: false, count: 4)
     
     // MARK: - Outlets
     
@@ -21,50 +21,42 @@ class FilterViewController: UIViewController {
         case 1:
             if butTapped[0] {
                 butTapped[0] = false
-                sender.backgroundColor = UIColor(named: "filterBgTapped")
-                sender.tintColor = UIColor(named: "filterTappedTint")
-                
-            } else {
-                butTapped[0] = true
                 sender.backgroundColor = UIColor(named: "filterBg")
                 sender.tintColor = UIColor.systemGray
-                
+            } else {
+                butTapped[0] = true
+                sender.backgroundColor = UIColor(named: "filterBgTapped")
+                sender.tintColor = UIColor(named: "filterTappedTint")
             }
         case 2:
             if butTapped[1] {
                 butTapped[1] = false
-                sender.backgroundColor = UIColor(named: "filterBgTapped")
-                sender.tintColor = UIColor(named: "filterTappedTint")
-                
-            } else {
-                butTapped[1] = true
                 sender.backgroundColor = UIColor(named: "filterBg")
                 sender.tintColor = UIColor.systemGray
-                
+            } else {
+                butTapped[1] = true
+                sender.backgroundColor = UIColor(named: "filterBgTapped")
+                sender.tintColor = UIColor(named: "filterTappedTint")
             }
         case 3:
             if butTapped[2] {
                 butTapped[2] = false
-                sender.backgroundColor = UIColor(named: "filterBgTapped")
-                sender.tintColor = UIColor(named: "filterTappedTint")
-                
-            } else {
-                butTapped[2] = true
                 sender.backgroundColor = UIColor(named: "filterBg")
                 sender.tintColor = UIColor.systemGray
-                
+            } else {
+                butTapped[2] = true
+                sender.backgroundColor = UIColor(named: "filterBgTapped")
+                sender.tintColor = UIColor(named: "filterTappedTint")
             }
         case 4:
             if butTapped[3] {
                 butTapped[3] = false
-                sender.backgroundColor = UIColor(named: "filterBgTapped")
-                sender.tintColor = UIColor(named: "filterTappedTint")
-                
-            } else {
-                butTapped[3] = true
                 sender.backgroundColor = UIColor(named: "filterBg")
                 sender.tintColor = UIColor.systemGray
-                
+            } else {
+                butTapped[3] = true
+                sender.backgroundColor = UIColor(named: "filterBgTapped")
+                sender.tintColor = UIColor(named: "filterTappedTint")
             }
         default: break
         }
@@ -81,7 +73,7 @@ class FilterViewController: UIViewController {
     private func changeFilterStatus(butTapped: [Bool]) {
         var i = 0
         for butTap in butTapped {
-            if !butTap {
+            if butTap {
                 filterButton[i].backgroundColor = UIColor(named: "filterBgTapped")
                 filterButton[i].tintColor = UIColor(named: "filterTappedTint")
             }

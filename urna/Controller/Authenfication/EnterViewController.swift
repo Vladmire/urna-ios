@@ -26,9 +26,8 @@ class EnterViewController: UIViewController {
         }
     }
     
+    // MARK: - Handlers
     @IBAction func enterButtonTapped(sender: UIButton) {
-//        [nameTextField, passwordTextField].forEach({ $0?.text = "123" })
-        
         if nameTextField.text == "" || passwordTextField.text == "" {
             let alertController = UIAlertController(title: "Oops", message: "Please note that all fields are required.", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -50,12 +49,33 @@ class EnterViewController: UIViewController {
             }
         }
     }
-    //forgot password action
     @IBAction func forgotButtonTapped(sender: UIButton) {
         performSegue(withIdentifier: "forgot", sender: nil)
     }
+
+    @objc private func togglePassword() {
+        passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
+    }
     
-    // MARK: - ViewDidLoad method
+    @objc private func keyboardWillShow(notification:NSNotification) {
+
+        guard let userInfo = notification.userInfo else { return }
+        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        var contentInset:UIEdgeInsets = self.scrollView.contentInset
+        contentInset.bottom =  keyboardFrame.size.height
+        scrollView.contentInset = contentInset
+        scrollView.scrollIndicatorInsets = contentInset
+    }
+
+    @objc private func keyboardWillHide(notification:NSNotification) {
+
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInset
+        scrollView.scrollIndicatorInsets = contentInset
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +89,9 @@ class EnterViewController: UIViewController {
         passwordTextField.tag = 5
         passwordTextField.autocorrectionType = .no
         passwordTextField.delegate = self
+        passwordTextField.rightView = UIButton.systemButton(with: UIImage(systemName: "eye")!, target: self, action: #selector(togglePassword))
+        
+        passwordTextField.rightViewMode = .always
         
         // move view to the top when keyboard appear
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
@@ -79,25 +102,9 @@ class EnterViewController: UIViewController {
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
-    // MARK: - TO DO:
 
-    @objc func keyboardWillShow(notification:NSNotification) {
 
-        guard let userInfo = notification.userInfo else { return }
-        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
-        var contentInset:UIEdgeInsets = self.scrollView.contentInset
-        contentInset.bottom =  keyboardFrame.size.height
-        scrollView.contentInset = contentInset
-        scrollView.scrollIndicatorInsets = contentInset
-    }
-
-    @objc func keyboardWillHide(notification:NSNotification) {
-
-        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
-        scrollView.contentInset = contentInset
-        scrollView.scrollIndicatorInsets = contentInset
-    }
+    
     // MARK: - Open with safari function
     func openWithSafariViewController(socialLink: String?) {
         guard let socialLink = socialLink else {

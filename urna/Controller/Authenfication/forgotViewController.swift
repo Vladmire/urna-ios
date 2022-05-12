@@ -32,6 +32,24 @@ class forgotViewController: UIViewController {
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
+    
+    
+    // MARK: - Handlers
+    
+    @IBAction func sendButtonTapped(sender: UIButton) {
+        //[nameTextField, passwordTextField].forEach({ $0?.text = "123" })
+        if emailTextField.text == "" {
+            let alertController = UIAlertController(title: "Oops", message: "Please note that all fields are required.", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(alertAction)
+            
+            present(alertController, animated: true, completion: nil)
+        } else
+        {
+            performSegue(withIdentifier: "sent", sender: nil)
+        }
+    }
+    
     @objc func keyboardWillShow(notification:NSNotification) {
 
         guard let userInfo = notification.userInfo else { return }
@@ -49,22 +67,6 @@ class forgotViewController: UIViewController {
         let contentInset:UIEdgeInsets = UIEdgeInsets.zero
         scrollView.contentInset = contentInset
         scrollView.scrollIndicatorInsets = contentInset
-    }
-    
-    // MARK: - Forgot password action
-    
-    @IBAction func sendButtonTapped(sender: UIButton) {
-        //[nameTextField, passwordTextField].forEach({ $0?.text = "123" })
-        if emailTextField.text == "" {
-            let alertController = UIAlertController(title: "Oops", message: "Please note that all fields are required.", preferredStyle: .alert)
-            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alertController.addAction(alertAction)
-            
-            present(alertController, animated: true, completion: nil)
-        } else
-        {
-            performSegue(withIdentifier: "sent", sender: nil)
-        }
     }
 }
 

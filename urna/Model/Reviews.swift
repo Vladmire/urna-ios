@@ -9,7 +9,7 @@ import Foundation
 
 
 struct Review: Hashable {
-    let userID: Int
+    let userID: String
     let image: String
     let name: String
     let pointID: Int

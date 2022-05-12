@@ -24,7 +24,7 @@ class WriteReviewViewController: UITableViewController, UITextViewDelegate {
     @IBOutlet var reviewText: UITextView!
     @IBOutlet var sentButton: UIButton!
     @IBAction func sentButtonTapped() {
-        let newReview = Review(userID: currentUser?.userID ?? 0, image: currentUser?.image ?? "accIcon", name: currentUser?.name ?? "noName", pointID: currentPoint.pointID, rating: rating, text: reviewText.text)
+        let newReview = Review(userID: currentUser!.userID, image: currentUser?.image ?? "accIcon", name: currentUser?.name ?? "noName", pointID: currentPoint.pointID, rating: rating, text: reviewText.text)
         completion?(newReview)
         dismiss(animated: true)
     }

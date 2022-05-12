@@ -12,7 +12,7 @@ class MapViewController: UIViewController {
 
     private var currentAnnotations: [MyAnnotation] = []
     private let pointsProvider = PointsProvider()
-    private var isFilterButtonTapped = Array(repeating: true, count: 4)
+    private var isFilterButtonTapped = Array(repeating: false, count: 4)
     
     // MARK: - Outlets
     
@@ -23,40 +23,18 @@ class MapViewController: UIViewController {
             guard let welf = self else { return }
             self?.isFilterButtonTapped = filterTapped
             welf.hideAnnotations(self!.currentAnnotations)
-            if filterTapped.elementsEqual([true, true, true, true]) {
-                welf.showDownloadedPoints(welf.currentAnnotations)
+            let types: [Point.PointType] = [.plastic, .bio, .paper, .batteries]
+            let activeFilters = filterTapped.enumerated().compactMap { $0.element ? types[$0.offset] : nil }
+            // empty filters; show all points
+            guard !activeFilters.isEmpty else {
+                welf.showPoints(welf.currentAnnotations)
+                return
             }
-        
-            var filteredAnnotations: [MyAnnotation] = []
-            if !welf.isFilterButtonTapped[0] {
-                for annotation in welf.currentAnnotations {
-                    if annotation.point.type!.contains(.plastic) {
-                        filteredAnnotations.append(annotation)
-                    }
-                }
-            }
-            if !welf.isFilterButtonTapped[1] {
-                for annotation in welf.currentAnnotations {
-                    if annotation.point.type!.contains(.bio) {
-                        filteredAnnotations.append(annotation)
-                    }
-                }
-            }
-            if !welf.isFilterButtonTapped[2] {
-                for annotation in welf.currentAnnotations {
-                    if annotation.point.type!.contains(.paper) {
-                        filteredAnnotations.append(annotation)
-                    }
-                }
-            }
-            if !welf.isFilterButtonTapped[3] {
-                for annotation in welf.currentAnnotations {
-                    if annotation.point.type!.contains(.batteries) {
-                        filteredAnnotations.append(annotation)
-                    }
-                }
-            }
-            welf.showDownloadedPoints(filteredAnnotations)
+            let filteredAnnotations = welf.currentAnnotations.filter({ anotation in
+                return !activeFilters.map({ anotation.point.type?.contains($0) }).contains(false)
+            })
+            
+            welf.showPoints(Array(filteredAnnotations))
         }
         controller.modalPresentationStyle = .overFullScreen
         self.present(controller, animated: false, completion: nil)
@@ -114,14 +92,14 @@ class MapViewController: UIViewController {
         }
         group.notify(queue: .main) { [weak self] in
             self!.currentAnnotations = annotations
-            self?.showDownloadedPoints(annotations)
+            self?.showPoints(annotations)
             
         }
     }
     
     // MARK: - Show points
     
-    private func showDownloadedPoints(_ annotations: [MyAnnotation]) {
+    private func showPoints(_ annotations: [MyAnnotation]) {
         mapView.showAnnotations(annotations, animated: true)
         
     }

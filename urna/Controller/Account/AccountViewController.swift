@@ -11,33 +11,6 @@ class AccountViewController: UIViewController {
     
     private var currentUser = UserManager.shared.currentUser
     
-    // MARK: - ViewDidLoad method
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        //storyboard properties
-        
-        username[0].text = currentUser?.name ?? ""
-        username[1].text = currentUser?.name ?? ""
-
-        email.text = currentUser?.email ?? ""
-        password.text = currentUser?.password
-         
-        userAvatar.image  = UIImage(named: currentUser?.image ?? "")
-        userAvatar.layer.cornerRadius = 75.0
-        userAvatar.layer.borderWidth = 4
-        userAvatar.layer.borderColor = UIColor.white.cgColor
-        userAvatar.layer.masksToBounds = true
-        
-        addImage.layer.cornerRadius = addImage.frame.width / 2.0
-        addImage.setTitle("", for: .normal)
-        
-        for button in changeValue {
-            button.setTitle("", for: .normal)
-        }
-    }
-    
     //MARK: - Outlets
     
     @IBOutlet var username: [UILabel]!
@@ -48,7 +21,7 @@ class AccountViewController: UIViewController {
     @IBOutlet var addImage: UIButton!
     
     
-    // MARK: - change user information
+    // MARK: - Handlers
     @IBOutlet var changeValue: [UIButton]!
     @IBAction func pencilButtonTapped(sender: UIButton) {
         switch sender.tag {
@@ -57,7 +30,10 @@ class AccountViewController: UIViewController {
                 self?.username[0].text = text
                 self?.username[1].text = text
                 self?.currentUser?.name = text
-                //UserManager.shared.changeUser()
+                guard let person = self?.currentUser else {
+                    return
+                }
+                UserManager.shared.saveCurrentUser(person: person)
             }
             controller.modalPresentationStyle = .overFullScreen
             self.present(controller, animated: false, completion: nil)
@@ -73,7 +49,10 @@ class AccountViewController: UIViewController {
                     self?.gender.text = "Female"
                 }
                 self?.currentUser?.gender = gender
-                //UserManager.shared.changeUser()
+                guard let person = self?.currentUser else {
+                    return
+                }
+                UserManager.shared.saveCurrentUser(person: person)
             }
             controller.modalPresentationStyle = .overFullScreen
             self.present(controller, animated: false, completion: nil)
@@ -81,7 +60,10 @@ class AccountViewController: UIViewController {
             let controller = NewEmailViewConroller { [weak self] text in
                 self?.email.text = text
                 self?.currentUser?.email = text
-                //UserManager.shared.changeUser()
+                guard let person = self?.currentUser else {
+                    return
+                }
+                UserManager.shared.saveCurrentUser(person: person)
             }
             controller.modalPresentationStyle = .overFullScreen
             self.present(controller, animated: false, completion: nil)
@@ -89,7 +71,10 @@ class AccountViewController: UIViewController {
             let controller = NewPasswordViewController { [weak self] text in
                 self?.password.text = text
                 self?.currentUser?.password = text
-                //UserManager.shared.changeUser()
+                guard let person = self?.currentUser else {
+                    return
+                }
+                UserManager.shared.saveCurrentUser(person: person)
             }
             controller.modalPresentationStyle = .overFullScreen
             self.present(controller, animated: false, completion: nil)
@@ -97,7 +82,6 @@ class AccountViewController: UIViewController {
             print("wrong tag sender")
         }
     }
-    // MARK: - delete logout buttons
     @IBAction func logout(sender: UIButton) {
         UserManager.shared.logout()
         let storyboard = UIStoryboard(name: "Auth", bundle: nil)
@@ -121,7 +105,7 @@ class AccountViewController: UIViewController {
         
         
     }
-    // MARK: - choose user photo
+    
     @IBAction func pickUserImage() {
         let photoSourceRequestController = UIAlertController(title: "", message: "Choose your photo avatar", preferredStyle: .actionSheet)
         
@@ -151,6 +135,32 @@ class AccountViewController: UIViewController {
         
         present(photoSourceRequestController, animated: true, completion: nil)
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //storyboard properties
+        
+        username[0].text = currentUser?.name ?? ""
+        username[1].text = currentUser?.name ?? ""
+        gender.text = currentUser?.gender.rawValue
+        email.text = currentUser?.email ?? ""
+        password.text = currentUser?.password
+         
+        userAvatar.image  = UIImage(named: currentUser?.image ?? "")
+        userAvatar.layer.cornerRadius = 75.0
+        userAvatar.layer.borderWidth = 4
+        userAvatar.layer.borderColor = UIColor.white.cgColor
+        userAvatar.layer.masksToBounds = true
+        
+        addImage.layer.cornerRadius = addImage.frame.width / 2.0
+        addImage.setTitle("", for: .normal)
+        
+        for button in changeValue {
+            button.setTitle("", for: .normal)
+        }
+    }
+    
 }
 
     // MARK: - image picker

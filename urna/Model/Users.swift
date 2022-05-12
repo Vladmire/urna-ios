@@ -15,11 +15,11 @@ struct User: Hashable {
         case hidden
     }
     
-    var userID: Int
+    var userID: String
     var login: String
     var password: String
     var email: String
     var image: String
     var name: String
-    var gender: Gender?
+    var gender: Gender
 }

@@ -28,13 +28,23 @@ class changeViewController: UIViewController {
         newPasswordTextField.autocorrectionType = .no
         newPasswordTextField.delegate = self
         
+        passwordTextField.rightView = UIButton.systemButton(with: UIImage(systemName: "eye")!, target: self, action: #selector(togglePassword))
+        passwordTextField.rightViewMode = .always
+        newPasswordTextField.rightView = UIButton.systemButton(with: UIImage(systemName: "eye")!, target: self, action: #selector(togglePassword))
+        newPasswordTextField.rightViewMode = .always
+        
+        
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
 
-    // MARK: - Change password action
+    // MARK: - Handlers
 
+    @objc private func togglePassword() {
+        passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
+    }
+    
      @IBAction func changeButtonTapped(sender: UIButton) {
          
          if passwordTextField.text == "" || newPasswordTextField.text == "" {
